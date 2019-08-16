@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Footprint;
-import com.cskaoyan.springboot.demo.been.FootprintExample;
+import com.cskaoyan.springboot.demo.bean.Footprint;
+import com.cskaoyan.springboot.demo.bean.FootprintExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Region;
-import com.cskaoyan.springboot.demo.been.RegionExample;
+import com.cskaoyan.springboot.demo.bean.Region;
+import com.cskaoyan.springboot.demo.bean.RegionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

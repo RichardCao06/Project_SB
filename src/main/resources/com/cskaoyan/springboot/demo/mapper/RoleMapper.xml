@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cskaoyan.springboot.demo.mapper.RoleMapper">
-  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.been.Role">
+  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.bean.Role">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="desc" jdbcType="VARCHAR" property="desc" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List">
     id, name, desc, enabled, add_time, update_time, deleted
   </sql>
-  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.been.RoleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.RoleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -95,13 +95,13 @@
     delete from cskaoyan_mall_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.been.RoleExample">
+  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.bean.RoleExample">
     delete from cskaoyan_mall_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.been.Role">
+  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.Role">
     insert into cskaoyan_mall_role (id, name, desc, 
       enabled, add_time, update_time, 
       deleted)
@@ -109,7 +109,7 @@
       #{enabled,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.been.Role">
+  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.Role">
     insert into cskaoyan_mall_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -158,7 +158,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.been.RoleExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.bean.RoleExample" resultType="java.lang.Long">
     select count(*) from cskaoyan_mall_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -206,7 +206,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.been.Role">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.bean.Role">
     update cskaoyan_mall_role
     <set>
       <if test="name != null">
@@ -230,7 +230,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.been.Role">
+  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.bean.Role">
     update cskaoyan_mall_role
     set name = #{name,jdbcType=VARCHAR},
       desc = #{desc,jdbcType=VARCHAR},
