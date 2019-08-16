@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /admin
+  port: 80
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cskaoyan_mall_db?serverTimezone=UTC&amp
+    data-username: root
+    data-password: ss7832459
