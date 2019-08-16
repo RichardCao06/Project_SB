@@ -1,6 +1,6 @@
 package com.cskaoyan.springboot.demo.service;
 
-import com.cskaoyan.springboot.demo.bean.CustomResult;
+
 import com.cskaoyan.springboot.demo.mapper.StatMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

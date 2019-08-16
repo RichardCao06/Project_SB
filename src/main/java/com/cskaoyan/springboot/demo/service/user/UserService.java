@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.service.user;
 
-import com.cskaoyan.springboot.demo.been.PageBean;
-import com.cskaoyan.springboot.demo.been.User;
+import com.cskaoyan.springboot.demo.bean.PageBean;
+import com.cskaoyan.springboot.demo.bean.User;
 
 import java.util.List;
 

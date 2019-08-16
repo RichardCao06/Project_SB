@@ -1,6 +1,6 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.bean.CustomResult;
+
 
 import java.util.List;
 import java.util.Map;

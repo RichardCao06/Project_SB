@@ -1,8 +1,8 @@
 package com.cskaoyan.springboot.demo.service.user.impl;
 
-import com.cskaoyan.springboot.demo.been.PageBean;
-import com.cskaoyan.springboot.demo.been.User;
-import com.cskaoyan.springboot.demo.been.UserExample;
+import com.cskaoyan.springboot.demo.bean.PageBean;
+import com.cskaoyan.springboot.demo.bean.User;
+import com.cskaoyan.springboot.demo.bean.UserExample;
 import com.cskaoyan.springboot.demo.mapper.UserMapper;
 import com.cskaoyan.springboot.demo.service.user.UserService;
 import com.github.pagehelper.PageHelper;

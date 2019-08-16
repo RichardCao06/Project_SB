@@ -1,8 +1,8 @@
 package com.cskaoyan.springboot.demo.controller.user;
 
-import com.cskaoyan.springboot.demo.been.Errno;
-import com.cskaoyan.springboot.demo.been.PageBean;
-import com.cskaoyan.springboot.demo.been.User;
+import com.cskaoyan.springboot.demo.bean.Errno;
+import com.cskaoyan.springboot.demo.bean.PageBean;
+import com.cskaoyan.springboot.demo.bean.User;
 import com.cskaoyan.springboot.demo.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
