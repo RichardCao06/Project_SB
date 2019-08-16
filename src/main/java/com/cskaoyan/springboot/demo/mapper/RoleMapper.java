@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Role;
-import com.cskaoyan.springboot.demo.been.RoleExample;
+import com.cskaoyan.springboot.demo.bean.Role;
+import com.cskaoyan.springboot.demo.bean.RoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

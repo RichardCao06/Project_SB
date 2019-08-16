@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Admin;
-import com.cskaoyan.springboot.demo.been.AdminExample;
+import com.cskaoyan.springboot.demo.bean.Admin;
+import com.cskaoyan.springboot.demo.bean.AdminExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

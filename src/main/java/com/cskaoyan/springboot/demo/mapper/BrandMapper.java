@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Brand;
-import com.cskaoyan.springboot.demo.been.BrandExample;
+import com.cskaoyan.springboot.demo.bean.Brand;
+import com.cskaoyan.springboot.demo.bean.BrandExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

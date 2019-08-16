@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.System;
-import com.cskaoyan.springboot.demo.been.SystemExample;
+import com.cskaoyan.springboot.demo.bean.System;
+import com.cskaoyan.springboot.demo.bean.SystemExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,4 +27,8 @@ public interface SystemMapper {
     int updateByPrimaryKeySelective(System record);
 
     int updateByPrimaryKey(System record);
+
+    List<String> selectByExample_config(SystemExample example);
+
+    int update_mallconfig(@Param("name") String name, @Param("address") String address, @Param("phone") String phone, @Param("qq") String qq);
 }

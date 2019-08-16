@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cskaoyan.springboot.demo.mapper.UserFormidMapper">
-  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.been.UserFormid">
+  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.bean.UserFormid">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="formId" jdbcType="VARCHAR" property="formid" />
     <result column="isprepay" jdbcType="BIT" property="isprepay" />
@@ -73,7 +73,7 @@
   <sql id="Base_Column_List">
     id, formId, isprepay, useAmount, expire_time, openId, add_time, update_time, deleted
   </sql>
-  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.been.UserFormidExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.UserFormidExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -97,13 +97,13 @@
     delete from cskaoyan_mall_user_formid
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.been.UserFormidExample">
+  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.bean.UserFormidExample">
     delete from cskaoyan_mall_user_formid
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.been.UserFormid">
+  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.UserFormid">
     insert into cskaoyan_mall_user_formid (id, formId, isprepay, 
       useAmount, expire_time, openId, 
       add_time, update_time, deleted
@@ -113,7 +113,7 @@
       #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.been.UserFormid">
+  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.UserFormid">
     insert into cskaoyan_mall_user_formid
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -174,7 +174,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.been.UserFormidExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.bean.UserFormidExample" resultType="java.lang.Long">
     select count(*) from cskaoyan_mall_user_formid
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -230,7 +230,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.been.UserFormid">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.bean.UserFormid">
     update cskaoyan_mall_user_formid
     <set>
       <if test="formid != null">
@@ -260,7 +260,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.been.UserFormid">
+  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.bean.UserFormid">
     update cskaoyan_mall_user_formid
     set formId = #{formid,jdbcType=VARCHAR},
       isprepay = #{isprepay,jdbcType=BIT},

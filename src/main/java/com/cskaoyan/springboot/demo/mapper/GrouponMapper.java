@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Groupon;
-import com.cskaoyan.springboot.demo.been.GrouponExample;
+import com.cskaoyan.springboot.demo.bean.Groupon;
+import com.cskaoyan.springboot.demo.bean.GrouponExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

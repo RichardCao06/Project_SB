@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.UserFormid;
-import com.cskaoyan.springboot.demo.been.UserFormidExample;
+import com.cskaoyan.springboot.demo.bean.UserFormid;
+import com.cskaoyan.springboot.demo.bean.UserFormidExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

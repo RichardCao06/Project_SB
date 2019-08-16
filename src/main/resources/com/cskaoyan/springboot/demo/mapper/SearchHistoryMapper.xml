@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cskaoyan.springboot.demo.mapper.SearchHistoryMapper">
-  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.been.SearchHistory">
+  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.bean.SearchHistory">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="keyword" jdbcType="VARCHAR" property="keyword" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List">
     id, user_id, keyword, from, add_time, update_time, deleted
   </sql>
-  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.been.SearchHistoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.SearchHistoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -95,13 +95,13 @@
     delete from cskaoyan_mall_search_history
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.been.SearchHistoryExample">
+  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.bean.SearchHistoryExample">
     delete from cskaoyan_mall_search_history
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.been.SearchHistory">
+  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.SearchHistory">
     insert into cskaoyan_mall_search_history (id, user_id, keyword, 
       from, add_time, update_time, 
       deleted)
@@ -109,7 +109,7 @@
       #{from,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.been.SearchHistory">
+  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.SearchHistory">
     insert into cskaoyan_mall_search_history
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -158,7 +158,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.been.SearchHistoryExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.bean.SearchHistoryExample" resultType="java.lang.Long">
     select count(*) from cskaoyan_mall_search_history
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -206,7 +206,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.been.SearchHistory">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.bean.SearchHistory">
     update cskaoyan_mall_search_history
     <set>
       <if test="userId != null">
@@ -230,7 +230,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.been.SearchHistory">
+  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.bean.SearchHistory">
     update cskaoyan_mall_search_history
     set user_id = #{userId,jdbcType=INTEGER},
       keyword = #{keyword,jdbcType=VARCHAR},
