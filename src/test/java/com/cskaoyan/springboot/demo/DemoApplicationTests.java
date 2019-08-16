@@ -20,7 +20,7 @@ import java.lang.System;
 import java.math.BigDecimal;
 import java.util.List;
 
-@RunWith(SpringRunner.class)
+/*@RunWith(SpringRunner.class)
 @SpringBootTest
 @MapperScan("com.cskaoyan.springboot.demo.mapper")
 public class DemoApplicationTests {
@@ -111,4 +111,4 @@ public class DemoApplicationTests {
         System.out.println(brand);
     }
 
-}
+}*/
