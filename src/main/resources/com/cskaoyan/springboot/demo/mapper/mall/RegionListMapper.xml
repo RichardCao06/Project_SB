@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.springboot.demo.mapper.mall.RegionListMapper">
+    <resultMap id="provinceListMapper" type="com.cskaoyan.springboot.demo.bean.mall.Province">
+        <result property="id" column="id"></result>
+        <result property="pid" column="pid"></result>
+        <result property="name" column="name"></result>
+        <result property="type" column="type"></result>
+        <result property="code" column="code"></result>
+        <collection property="children" column="id" select="com.cskaoyan.springboot.demo.mapper.mall.RegionListMapper.findCityList"></collection>
+    </resultMap>
+    <select id="findProvinceList" resultMap="provinceListMapper">
+        select
+        id,
+        pid,
+        name,
+        type,
+        code
+        from cskaoyan_mall_region
+        where type= #{type}
+    </select>
+
+
+    <resultMap id="cityListMapper" type="com.cskaoyan.springboot.demo.bean.mall.City">
+        <result property="id" column="id"></result>
+        <result property="pid" column="pid"></result>
+        <result property="name" column="name"></result>
+        <result property="type" column="type"></result>
+        <result property="code" column="code"></result>
+        <collection property="children" column="code" select="com.cskaoyan.springboot.demo.mapper.mall.RegionListMapper.findCountyList"></collection>
+
+    </resultMap>
+    <select id="findCityList" resultMap="cityListMapper">
+        select
+        id,
+        pid,
+        name,
+        type,
+        code
+        from cskaoyan_mall_region
+        where pid=#{pid}
+    </select>
+
+    <resultMap id="countyListMapper" type="com.cskaoyan.springboot.demo.bean.mall.County">
+        <result property="id" column="id"></result>
+        <result property="pid" column="pid"></result>
+        <result property="name" column="name"></result>
+        <result property="type" column="type"></result>
+        <result property="code" column="code"></result>
+    </resultMap>
+
+    <select id="findCountyList" resultMap="countyListMapper">
+        select
+        id,
+        pid,
+        name,
+        type,
+        code
+        from cskaoyan_mall_region
+        where left(code,4) = #{code} and type=3
+    </select>
+</mapper>

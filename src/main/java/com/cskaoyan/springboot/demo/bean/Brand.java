@@ -93,4 +93,19 @@ public class Brand {
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
+
+    @Override
+    public String toString() {
+        return "Brand{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", picUrl='" + picUrl + '\'' +
+                ", sortOrder=" + sortOrder +
+                ", floorPrice=" + floorPrice +
+                ", addTime=" + addTime +
+                ", updateTime=" + updateTime +
+                ", deleted=" + deleted +
+                '}';
+    }
 }
