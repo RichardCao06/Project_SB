@@ -1,8 +1,8 @@
 package com.cskaoyan.springboot.demo.controller;
 
-import com.cskaoyan.springboot.demo.been.Data;
-import com.cskaoyan.springboot.demo.been.Info;
-import com.cskaoyan.springboot.demo.been.Message;
+import com.cskaoyan.springboot.demo.bean.Data;
+import com.cskaoyan.springboot.demo.bean.Info;
+import com.cskaoyan.springboot.demo.bean.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

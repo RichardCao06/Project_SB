@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Log;
-import com.cskaoyan.springboot.demo.been.LogExample;
+import com.cskaoyan.springboot.demo.bean.Log;
+import com.cskaoyan.springboot.demo.bean.LogExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

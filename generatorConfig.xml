@@ -37,7 +37,7 @@
         <!-- javaModelGenerator javaBean生成的配置信息
              targetProject:生成PO类的位置
              targetPackage：生成PO类的类名-->
-        <javaModelGenerator targetPackage="com.cskaoyan.springboot.demo.been"
+        <javaModelGenerator targetPackage="com.cskaoyan.springboot.demo.bean"
                             targetProject=".\src\main\java">
             <!-- enableSubPackages:是否允许子包,是否让schema作为包的后缀
                  即targetPackage.schemaName.tableName -->

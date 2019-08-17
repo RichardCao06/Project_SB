@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Feedback;
-import com.cskaoyan.springboot.demo.been.FeedbackExample;
+import com.cskaoyan.springboot.demo.bean.Feedback;
+import com.cskaoyan.springboot.demo.bean.FeedbackExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

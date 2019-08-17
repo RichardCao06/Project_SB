@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Topic;
-import com.cskaoyan.springboot.demo.been.TopicExample;
+import com.cskaoyan.springboot.demo.bean.Topic;
+import com.cskaoyan.springboot.demo.bean.TopicExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

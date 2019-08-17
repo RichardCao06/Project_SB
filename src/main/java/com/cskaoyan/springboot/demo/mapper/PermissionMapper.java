@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Permission;
-import com.cskaoyan.springboot.demo.been.PermissionExample;
+import com.cskaoyan.springboot.demo.bean.Permission;
+import com.cskaoyan.springboot.demo.bean.PermissionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

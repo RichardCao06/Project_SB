@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Coupon;
-import com.cskaoyan.springboot.demo.been.CouponExample;
+import com.cskaoyan.springboot.demo.bean.Coupon;
+import com.cskaoyan.springboot.demo.bean.CouponExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

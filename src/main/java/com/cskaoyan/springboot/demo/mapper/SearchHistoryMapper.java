@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.SearchHistory;
-import com.cskaoyan.springboot.demo.been.SearchHistoryExample;
+import com.cskaoyan.springboot.demo.bean.SearchHistory;
+import com.cskaoyan.springboot.demo.bean.SearchHistoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

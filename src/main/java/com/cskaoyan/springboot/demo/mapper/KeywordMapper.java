@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Keyword;
-import com.cskaoyan.springboot.demo.been.KeywordExample;
+import com.cskaoyan.springboot.demo.bean.Keyword;
+import com.cskaoyan.springboot.demo.bean.KeywordExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

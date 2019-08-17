@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo;
 
-import com.cskaoyan.springboot.demo.been.Ad;
-import com.cskaoyan.springboot.demo.been.AdExample;
+/*import com.cskaoyan.springboot.demo.bean.Ad;
+import com.cskaoyan.springboot.demo.bean.AdExample;
 import com.cskaoyan.springboot.demo.mapper.AdMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
-    /*@Autowired
+    *//*@Autowired
     AdMapper adMapper;
 
     @Test
@@ -23,6 +23,6 @@ public class DemoApplicationTests {
         adExample.createCriteria();
         List<Ad> ads = adMapper.selectByExample(adExample);
         System.out.println(ads);
-    }*/
+    }*//*
 
-}
+}*/

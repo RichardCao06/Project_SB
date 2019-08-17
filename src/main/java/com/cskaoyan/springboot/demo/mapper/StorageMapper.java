@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Storage;
-import com.cskaoyan.springboot.demo.been.StorageExample;
+import com.cskaoyan.springboot.demo.bean.Storage;
+import com.cskaoyan.springboot.demo.bean.StorageExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

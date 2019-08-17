@@ -1,8 +1,11 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.been.Admin;
-import com.cskaoyan.springboot.demo.been.AdminExample;
+import com.cskaoyan.springboot.demo.bean.Admin;
+import com.cskaoyan.springboot.demo.bean.AdminExample;
 import java.util.List;
+
+import com.cskaoyan.springboot.demo.bean.systembean.Admin2;
+import com.cskaoyan.springboot.demo.bean.systembean.AdminCustom;
 import org.apache.ibatis.annotations.Param;
 
 public interface AdminMapper {
@@ -26,5 +29,16 @@ public interface AdminMapper {
 
     int updateByPrimaryKeySelective(Admin record);
 
-    int updateByPrimaryKey(Admin record);
+    int updateByPrimaryKey(Admin2 record);
+
+    /*查询RoleList信息*/
+    List<AdminCustom> queryRoleList();
+
+    int creatAdmin(@Param("admin") Admin2 admin);
+
+    List<AdminCustom> searchByName(@Param("username") String username);
+
+    Admin2 returnByName(@Param("username")String username);
+
+
 }
