@@ -1,5 +1,6 @@
 package com.cskaoyan.springboot.demo.service.user.impl;
 
+
 import com.cskaoyan.springboot.demo.bean.PageBean;
 import com.cskaoyan.springboot.demo.bean.User;
 import com.cskaoyan.springboot.demo.bean.UserExample;
@@ -7,7 +8,6 @@ import com.cskaoyan.springboot.demo.mapper.UserMapper;
 import com.cskaoyan.springboot.demo.service.user.UserService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -21,7 +21,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageBean<User> findByCondition(int page,int rows,String username, String mobile) {
+    public PageBean<User> findByCondition(int page, int rows, String username,
+                                          String mobile, String sort, String order){
         PageHelper.startPage(page,rows);
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
@@ -30,6 +31,9 @@ public class UserServiceImpl implements UserService {
         }
         if(!("".equals(mobile)||mobile==null)){
             criteria = criteria.andMobileEqualTo(mobile);
+        }
+        if(!("".equals(sort)||sort==null)){
+            userExample.setOrderByClause(sort + " " + order);
         }
         List<User> users = userMapper.selectByExample(userExample);
         //long total = new PageInfo<>(users).getTotal();
