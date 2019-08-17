@@ -5,6 +5,7 @@ import com.cskaoyan.springboot.demo.bean.RoleExample;
 import com.cskaoyan.springboot.demo.bean.systembean.*;
 import com.cskaoyan.springboot.demo.mapper.AdminMapper;
 import com.cskaoyan.springboot.demo.mapper.RoleMapper;
+import com.cskaoyan.springboot.demo.util.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,19 +46,17 @@ public class AdministratorServiceImpl implements AdministratorService {
 
     @Override
     public ResponseVo insertAdmin(Admin2 admin) {
-        String s = "yyyy-MM-dd";
+        String s = "yyyy-MM-dd HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(s);
         Date parse = new Date();
-        try {
-            parse = dateFormat.parse(s);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+        dateFormat.format(parse);
+        System.out.println(parse);
         admin.setAddTime(parse);
         admin.setUpdateTime(parse);
         ResponseVo<Object> responseVo = new ResponseVo<>();
         responseVo.setErrno(0);
+        Md5Util.getMD5(admin.getPassword());
+        System.out.println(admin.getPassword());
         int status = adminMapper.creatAdmin(admin);
         if(status == 1){
             responseVo.setErrmsg("成功");
