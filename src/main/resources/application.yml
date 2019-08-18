@@ -5,9 +5,12 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cskaoyanmall?useUnicode=true&amp;characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/cskaoyanmall?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 12345
+  aop:
+    proxy-target-class: true
+    auto: true
 
 mybatis:
   type-handlers-package: com.cskaoyan.springboot.demo.util.String2ArrayHandler

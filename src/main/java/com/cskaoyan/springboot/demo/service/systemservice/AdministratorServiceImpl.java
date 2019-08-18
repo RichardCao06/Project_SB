@@ -49,13 +49,15 @@ public class AdministratorServiceImpl implements AdministratorService {
         String s = "yyyy-MM-dd HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(s);
         Date parse = new Date();
-        dateFormat.format(parse);
-        System.out.println(parse);
+        String format = dateFormat.format(parse);
+        System.out.println(format);
+
         admin.setAddTime(parse);
         admin.setUpdateTime(parse);
         ResponseVo<Object> responseVo = new ResponseVo<>();
         responseVo.setErrno(0);
-        Md5Util.getMD5(admin.getPassword());
+        String password = Md5Util.getMD5(admin.getPassword());
+        admin.setPassword(password);
         System.out.println(admin.getPassword());
         int status = adminMapper.creatAdmin(admin);
         if(status == 1){

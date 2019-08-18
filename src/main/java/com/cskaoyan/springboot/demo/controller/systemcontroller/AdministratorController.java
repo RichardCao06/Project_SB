@@ -5,6 +5,7 @@ import com.cskaoyan.springboot.demo.bean.systembean.AdminCustom;
 import com.cskaoyan.springboot.demo.bean.systembean.ResponseVo;
 import com.cskaoyan.springboot.demo.bean.systembean.SystemRole;
 import com.cskaoyan.springboot.demo.service.systemservice.AdministratorService;
+import com.cskaoyan.springboot.demo.util.ControllerLog;
 import com.cskaoyan.springboot.demo.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -61,16 +62,19 @@ public class AdministratorController {
     }*/
 
     @RequestMapping("admin/create")
+    @ControllerLog
     public ResponseVo admincreate(@RequestBody Admin2 admin){
         return administratorService.insertAdmin(admin);
     }
 
     @RequestMapping("admin/delete")
+    @ControllerLog
     public ResponseVo deleteadmin(@RequestBody Admin2 admin){
         return administratorService.deleteAdmin(admin.getId());
     }
 
     @RequestMapping("admin/update")
+    @ControllerLog
     public ResponseVo updateadmin(@RequestBody Admin2 admin){
         return administratorService.updateAdmin(admin);
     }

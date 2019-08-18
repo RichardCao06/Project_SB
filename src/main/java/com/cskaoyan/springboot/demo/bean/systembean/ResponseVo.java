@@ -28,4 +28,13 @@ public class ResponseVo<T> {
     public void setErrno(int errno) {
         this.errno = errno;
     }
+
+    @Override
+    public String toString() {
+        return "ResponseVo{" +
+                "data=" + data +
+                ", errmsg='" + errmsg + '\'' +
+                ", errno=" + errno +
+                '}';
+    }
 }
