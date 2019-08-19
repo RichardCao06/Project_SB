@@ -12,4 +12,8 @@ public interface BrandListMapper {
     int updateBrand(@Param("brand") Brand brand);
 
     Brand findBrandById(@Param("id") int id);
+
+    int deleteBrandById(@Param("id") int id);
+
+    List<Brand> findBrandListByIdByName(@Param("id")Integer id,@Param("name") String name);
 }
