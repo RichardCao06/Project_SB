@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.springboot.demo.mapper.mall.CategoryListMapper">
+
+    <resultMap id="categoryMapper" type="com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne">
+        <result property="id" column="id"></result>
+        <result property="name" column="name"></result>
+        <result property="keywords" column="keywords"></result>
+        <result property="desc" column="description"></result>
+        <result property="pid" column="pid"></result>
+        <result property="iconUrl" column="icon_url"></result>
+        <result property="picUrl" column="pic_url"></result>
+        <result property="level" column="levels"></result>
+        <result property="delete" column="delete"></result>
+        <collection property="children" column="id" select="com.cskaoyan.springboot.demo.mapper.mall.CategoryListMapper.findCategoryLevelTwoByPid"></collection>
+    </resultMap>
+
+
+    <select id="findCategoryList" resultMap="categoryMapper">
+        select
+        id,
+        name,
+        keywords,
+        description,
+        pid,
+        icon_url,
+        pic_url,
+        levels,
+        deleted
+        from cskaoyan_mall_category
+        where levels = #{level}
+    </select>
+
+
+    <resultMap id="categoryLevel2Mapper" type="com.cskaoyan.springboot.demo.bean.mall.CategoryLevelTwo">
+        <result property="id" column="id"></result>
+        <result property="name" column="name"></result>
+        <result property="keywords" column="keywords"></result>
+        <result property="desc" column="description"></result>
+        <result property="pid" column="pid"></result>
+        <result property="iconUrl" column="icon_url"></result>
+        <result property="picUrl" column="pic_url"></result>
+        <result property="level" column="levels"></result>
+        <result property="delete" column="delete"></result>
+    </resultMap>
+    <select id="findCategoryLevelTwoByPid" resultMap="categoryLevel2Mapper">
+        select
+        id,
+        name,
+        keywords,
+        description,
+        pid,
+        icon_url,
+        pic_url,
+        levels,
+        deleted
+        from cskaoyan_mall_category
+        where pid = #{pid}
+    </select>
+
+    <update id="updateCategory">
+        update cskaoyan_mall_category set
+        name = #{category.name},
+        keywords = #{category.name},
+        description = #{category.desc},
+        pid = #{category.pid},
+        icon_url = #{category.iconUrl},
+        pic_url = #{category.picUrl},
+        levels = #{category.level},
+        deleted = #{category.deleted}
+        where id = #{category.id}
+    </update>
+
+    <resultMap id="categoryDataMapper" type="com.cskaoyan.springboot.demo.bean.mall.CategoryData">
+        <result property="value" column="id"></result>
+        <result property="label" column="name"></result>
+    </resultMap>
+    <select id="findLevelOneCategoryList" resultMap="categoryDataMapper">
+        select
+        id,
+        name
+        from cskaoyan_mall_category where levels=#{level}
+    </select>
+
+    <delete id="deleteCategory">
+        delete from cskaoyan_mall_category where id=#{id}
+    </delete>
+
+</mapper>

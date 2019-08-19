@@ -48,4 +48,33 @@
         from cskaoyan_mall_brand
         where id = #{id}
     </select>
+
+    <delete id="deleteBrandById">
+        delete from cskaoyan_mall_brand where id = #{id}
+    </delete>
+
+
+    <select id="findBrandListByIdByName" resultMap="brandMapper">
+        select
+        id,
+        name,
+        description,
+        pic_url,
+        sort_order,
+        floor_price,
+        add_time,
+        update_time,
+        deleted
+        from cskaoyan_mall_brand
+        <where>
+            1 = 1
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null">
+                and name like #{name}
+            </if>
+        </where>
+
+    </select>
 </mapper>
