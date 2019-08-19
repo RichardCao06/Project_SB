@@ -1,6 +1,6 @@
 package com.cskaoyan.springboot.demo.bean;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Keyword {
     private Integer id;
@@ -15,9 +15,9 @@ public class Keyword {
 
     private Integer sortOrder;
 
-    private Date addTime;
+    private LocalDateTime addTime;
 
-    private Date updateTime;
+    private LocalDateTime updateTime;
 
     private Boolean deleted;
 
@@ -69,19 +69,19 @@ public class Keyword {
         this.sortOrder = sortOrder;
     }
 
-    public Date getAddTime() {
+    public LocalDateTime getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Date addTime) {
+    public void setAddTime(LocalDateTime addTime) {
         this.addTime = addTime;
     }
 
-    public Date getUpdateTime() {
+    public LocalDateTime getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -91,5 +91,20 @@ public class Keyword {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
+    }
+
+    @Override
+    public String toString() {
+        return "Keyword{" +
+                "id=" + id +
+                ", keyword='" + keyword + '\'' +
+                ", url='" + url + '\'' +
+                ", isHot=" + isHot +
+                ", isDefault=" + isDefault +
+                ", sortOrder=" + sortOrder +
+                ", addTime=" + addTime +
+                ", updateTime=" + updateTime +
+                ", deleted=" + deleted +
+                "} " + super.toString();
     }
 }
