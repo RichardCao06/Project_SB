@@ -1,6 +1,6 @@
 package com.cskaoyan.springboot.demo.controller.mall;
 
-import com.cskaoyan.springboot.demo.bean.mall.BrandMessage;
+import com.cskaoyan.springboot.demo.bean.mall.MessageWithData;
 import com.cskaoyan.springboot.demo.bean.Storage;
 import com.cskaoyan.springboot.demo.service.mallService.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,13 @@ import java.io.File;
 import java.io.IOException;
 
 @RestController
+@RequestMapping("admin")
 public class StorageController {
     @Autowired
     MallService mallService;
 
     @RequestMapping("storage/create")
-    public BrandMessage storeFile(MultipartFile file) throws IOException {
+    public MessageWithData storeFile(MultipartFile file) throws IOException {
         //根据上传的文件生成文件信息
         Storage storageFile = mallService.createUploadFileData(file);
         System.out.println(storageFile.getUrl());
@@ -28,10 +29,10 @@ public class StorageController {
         String path = "D:\\git\\Project_mall\\src\\main\\resources\\static\\wx\\storage\\fetch";
         File receiveFile = new File(path,storageFile.getKey());
         file.transferTo(receiveFile);
-        BrandMessage brandMessage = new BrandMessage();
-        brandMessage.setErrno(0);
-        brandMessage.setErrmsg("成功");
-        brandMessage.setData(storageFile);
-        return brandMessage;
+        MessageWithData messageWithData = new MessageWithData();
+        messageWithData.setErrno(0);
+        messageWithData.setErrmsg("成功");
+        messageWithData.setData(storageFile);
+        return messageWithData;
     }
 }

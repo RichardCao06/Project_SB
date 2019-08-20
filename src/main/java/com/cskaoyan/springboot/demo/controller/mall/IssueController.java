@@ -1,4 +1,4 @@
-package com.cskaoyan.springboot.demo.controller;
+package com.cskaoyan.springboot.demo.controller.mall;
 
 import com.cskaoyan.springboot.demo.bean.Issue;
 import com.cskaoyan.springboot.demo.bean.IssueBean;

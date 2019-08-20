@@ -2,7 +2,7 @@ package com.cskaoyan.springboot.demo.bean.mall;
 
 import java.util.List;
 
-public class MallMessage<T> {
+public class MessageWithList<T> {
     private int errno;
     private String errmsg;
     private List<T> data;

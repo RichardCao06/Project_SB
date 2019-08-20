@@ -1,4 +1,4 @@
-package com.cskaoyan.springboot.demo.controller;
+package com.cskaoyan.springboot.demo.controller.testController;
 
 import com.cskaoyan.springboot.demo.bean.Data;
 import com.cskaoyan.springboot.demo.bean.Info;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("admin")
 public class TestController {
 
 
