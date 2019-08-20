@@ -3,20 +3,22 @@ package com.cskaoyan.springboot.demo.service.mallService.impl;
 import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryData;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne;
+import com.cskaoyan.springboot.demo.bean.Storage;
 import com.cskaoyan.springboot.demo.bean.mall.Province;
-import com.cskaoyan.springboot.demo.mapper.BrandMapper;
-import com.cskaoyan.springboot.demo.mapper.OrderGoodsMapper;
-import com.cskaoyan.springboot.demo.mapper.OrderMapper;
-import com.cskaoyan.springboot.demo.mapper.UserMapper;
+import com.cskaoyan.springboot.demo.mapper.*;
 import com.cskaoyan.springboot.demo.mapper.mall.BrandListMapper;
 import com.cskaoyan.springboot.demo.mapper.mall.CategoryListMapper;
 import com.cskaoyan.springboot.demo.mapper.mall.RegionListMapper;
+import com.cskaoyan.springboot.demo.mapper.mall.StorageListMapper;
 import com.cskaoyan.springboot.demo.service.mallService.MallService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import java.lang.System;
+import java.util.*;
+
 @Service
 public class MallServiceImpl implements MallService {
 
@@ -34,6 +36,10 @@ public class MallServiceImpl implements MallService {
     OrderGoodsMapper orderGoodsMapper;
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    StorageMapper storageMapper;
+    @Autowired
+    StorageListMapper storageListMapper;
 
 
     @Override
@@ -145,5 +151,103 @@ public class MallServiceImpl implements MallService {
     public User findUserByUid(Integer userId) {
         User user = userMapper.selectByPrimaryKey(userId);
         return user;
+    }
+
+
+    @Override
+    public List<Order> findOrderListByPageByCondition(int page, int limit, short[] orderStatusArray, Integer userId, String orderSn) {
+        PageHelper.startPage(page,limit);
+        OrderExample orderExample = new OrderExample();
+        List<Short> shorts = new ArrayList<>();
+        //如果orderStatusArray不为空则将其附加为查询条件
+        if(orderStatusArray != null){
+            //将short转换为List<Short>
+            for (short orderStatus:orderStatusArray){
+                shorts.add(orderStatus);
+            }
+            //将List作为查询条件的参数
+            orderExample.createCriteria().andOrderStatusIn(shorts);
+        }
+        //如果userId不为空则将其附加为查询条件
+        if (userId != null){
+            orderExample.createCriteria().andUserIdEqualTo(userId);
+        }
+        //如果orderSn不为空则将其附加为查询条件
+        if(orderSn != null){
+            orderExample.createCriteria().andOrderSnEqualTo(orderSn);
+        }
+        List<Order> orderList = orderMapper.selectByExample(orderExample);
+        return orderList;
+    }
+
+    @Override
+    public int countOrderListByCondition(short[] orderStatusArray, Integer userId, String orderSn) {
+        OrderExample orderExample = new OrderExample();
+        List<Short> shorts = new ArrayList<>();
+        //如果orderStatusArray不为空则将其附加为查询条件
+        if(orderStatusArray != null){
+            //将short转换为List<Short>
+            for (short orderStatus:orderStatusArray){
+                shorts.add(orderStatus);
+            }
+            //将List作为查询条件的参数
+            orderExample.createCriteria().andOrderStatusIn(shorts);
+        }
+        //如果userId不为空则将其附加为查询条件
+        if (userId != null){
+            orderExample.createCriteria().andUserIdEqualTo(userId);
+        }
+        //如果orderSn不为空则将其附加为查询条件
+        if(orderSn != null){
+            orderExample.createCriteria().andOrderSnEqualTo(orderSn);
+        }
+        int l = (int)orderMapper.countByExample(orderExample);
+        return l;
+    }
+
+    @Override
+    public Storage createUploadFileData(MultipartFile file) {
+        Storage storage = new Storage();
+        //1.生成addTime
+        Date date = new Date();
+        storage.setAddTime(date);
+        //2.生成文件名key
+        String fileName = file.getOriginalFilename();
+        String uuid = UUID.randomUUID().toString();//生成随机的uuid
+        String suffix = fileName.substring(fileName.lastIndexOf("."));//截取文件的后缀
+        String key = uuid + suffix;
+        storage.setKey(key);
+        //3.生成原文件的名称
+        String name = file.getOriginalFilename();
+        storage.setName(name);
+        //3.生成文件的大小
+        int size = (int)file.getSize();
+        storage.setSize(size);
+        //4.生成文件的类型
+        String type = file.getContentType();
+        storage.setType(type);
+        //5.生成更新时间
+        storage.setUpdateTime(date);
+        //6.生成url
+        String url = "http://localhost/admin/wx/storage/fetch/" + key;
+        storage.setUrl(url);
+        return storage;
+    }
+
+    @Override
+    public int addCategory(Category category) {
+        int i = categoryListMapper.insertCategory(category);
+        return i;
+    }
+
+    @Override
+    public void addStorage(Storage storageFile) {
+        int i = storageListMapper.insertStorage(storageFile);
+    }
+
+    @Override
+    public int insertBrand(Brand brand) {
+        int i = brandListMapper.insertBrand(brand);
+        return i;
     }
 }

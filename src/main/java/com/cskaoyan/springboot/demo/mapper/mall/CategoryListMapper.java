@@ -19,4 +19,6 @@ public interface CategoryListMapper {
     List<CategoryData> findLevelOneCategoryList(@Param("level") String level);
 
     int deleteCategory(@Param("id") int id);
+
+    int insertCategory(@Param("category") Category category);
 }

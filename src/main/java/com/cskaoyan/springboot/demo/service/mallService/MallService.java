@@ -1,12 +1,11 @@
 package com.cskaoyan.springboot.demo.service.mallService;
 
-import com.cskaoyan.springboot.demo.bean.Brand;
-import com.cskaoyan.springboot.demo.bean.Order;
-import com.cskaoyan.springboot.demo.bean.OrderGoods;
-import com.cskaoyan.springboot.demo.bean.User;
+import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryData;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne;
+import com.cskaoyan.springboot.demo.bean.Storage;
 import com.cskaoyan.springboot.demo.bean.mall.Province;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -122,4 +121,52 @@ public interface MallService {
      * @return
      */
     User findUserByUid(Integer userId);
+
+    /**
+     * 根据条件分页查询order信息
+     * @param page
+     * @param limit
+     * @param orderStatusArray
+     * @param userId
+     * @param orderSn
+     * @return
+     */
+    List<Order> findOrderListByPageByCondition(int page, int limit, short[] orderStatusArray, Integer userId, String orderSn);
+
+    /**
+     * 查询符合条件的order数目
+     * @param orderStatusArray
+     * @param userId
+     * @param orderSn
+     * @return
+     */
+    int countOrderListByCondition(short[] orderStatusArray, Integer userId, String orderSn);
+
+    /**
+     * 生成上传文件的相关信息
+     * @param file
+     * @return
+     */
+    Storage createUploadFileData(MultipartFile file);
+
+    /**
+     * 添加category
+     * @param category
+     * @return
+     */
+    int addCategory(Category category);
+
+
+    /**
+     * 将上传的文件信息保存入数据库
+     * @param storageFile
+     */
+    void addStorage(Storage storageFile);
+
+    /**
+     * 添加brand数据
+     * @param brand
+     * @return
+     */
+    int insertBrand(Brand brand);
 }

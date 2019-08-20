@@ -1,5 +1,7 @@
 package com.cskaoyan.springboot.demo.controller.mall;
 
+import com.cskaoyan.springboot.demo.bean.Category;
+import com.cskaoyan.springboot.demo.bean.mall.BrandMessage;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryData;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne;
 import com.cskaoyan.springboot.demo.bean.mall.MallMessage;
@@ -68,6 +70,19 @@ public class CategoryController {
             mallMessage.setErrno(0);
             mallMessage.setErrmsg("成功");
             return mallMessage;
+        }
+        return null;
+    }
+
+    @RequestMapping("category/create")
+    public BrandMessage addCategory(@RequestBody Category category){
+        BrandMessage brandMessage = new BrandMessage();
+        int num = mallService.addCategory(category);
+        if(num > 0){
+            brandMessage.setErrno(0);
+            brandMessage.setErrmsg("成功");
+            brandMessage.setData(category);
+            return brandMessage;
         }
         return null;
     }

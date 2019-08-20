@@ -20,7 +20,13 @@ public class OrderController {
     MallService mallService;
 
 
-    @RequestMapping("order/list")
+    /**
+     * 查询订单列表
+     * @param page
+     * @param limit
+     * @return
+     */
+    /*@RequestMapping("order/list")
     public BrandMessage showOrderListByPage(int page, int limit){
         BrandMessage brandMessage = new BrandMessage();
         BrandData brandData = new BrandData();
@@ -35,8 +41,30 @@ public class OrderController {
             return brandMessage;
         }
         return null;
+    }*/
+
+    @RequestMapping("order/list")
+    public BrandMessage showOrderListByPageAndCondition(int page,int limit,short[] orderStatusArray,Integer userId, String orderSn){
+        BrandMessage brandMessage = new BrandMessage();
+        BrandData brandData = new BrandData();
+        List<Order> orderList =  mallService.findOrderListByPageByCondition(page,limit,orderStatusArray,userId,orderSn);
+        int num = mallService.countOrderListByCondition(orderStatusArray,userId,orderSn);
+        if(orderList != null){
+            brandMessage.setErrno(0);
+            brandMessage.setErrmsg("成功");
+            brandData.setItems(orderList);
+            brandData.setTotal(num);
+            brandMessage.setData(brandData);
+            return brandMessage;
+        }
+        return null;
     }
 
+    /**
+     * 查询订单详情
+     * @param id
+     * @return
+     */
     @RequestMapping("order/detail")
     public BrandMessage showOrderListDetailById(int id){
         BrandMessage brandMessage = new BrandMessage();
@@ -55,4 +83,6 @@ public class OrderController {
         }
         return null;
     }
+
+
 }
