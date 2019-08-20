@@ -1,6 +1,6 @@
 package com.cskaoyan.springboot.demo.bean.mall;
 
-public class BrandMessage {
+public class MessageWithData {
     private int errno;
     private String errmsg;
     private Object data;

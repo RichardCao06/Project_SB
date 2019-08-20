@@ -1,16 +1,20 @@
 server:
   servlet:
-    context-path: /admin
+    context-path: /
   port: 80
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cskaoyanmall?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cskaoyan_mall_db?serverTimezone=UTC&
     username: root
-    password: 12345
+    password: ss7832459
   aop:
     proxy-target-class: true
     auto: true
-
 mybatis:
   type-handlers-package: com.cskaoyan.springboot.demo.util.String2ArrayHandler
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

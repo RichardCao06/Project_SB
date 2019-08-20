@@ -1,4 +1,4 @@
-package com.cskaoyan.springboot.demo.controller;
+package com.cskaoyan.springboot.demo.controller.testController;
 
 import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.mapper.AdminMapper;

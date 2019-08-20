@@ -2,7 +2,7 @@ package com.cskaoyan.springboot.demo.bean.mall;
 
 import java.util.List;
 
-public class BrandData<T> {
+public class DataWithItemAndTotal<T> {
     private List<T> items;
     private int total;
 

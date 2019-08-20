@@ -1,6 +1,6 @@
 package com.cskaoyan.springboot.demo.controller.mall;
 
-import com.cskaoyan.springboot.demo.bean.mall.MallMessage;
+import com.cskaoyan.springboot.demo.bean.mall.MessageWithList;
 
 import com.cskaoyan.springboot.demo.bean.mall.Province;
 import com.cskaoyan.springboot.demo.service.mallService.MallService;
@@ -12,6 +12,7 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("admin")
 public class RegionListController {
     @Autowired
     MallService mallService;
@@ -21,8 +22,8 @@ public class RegionListController {
      * @return
      */
     @RequestMapping("region/list")
-    public MallMessage showRegionList(){
-        MallMessage message = new MallMessage();
+    public MessageWithList showRegionList(){
+        MessageWithList message = new MessageWithList();
         List<Province> regionList = mallService.findRegionList();
         if (regionList != null){
             message.setErrno(0);

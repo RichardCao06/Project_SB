@@ -2,8 +2,8 @@ package com.cskaoyan.springboot.demo.controller.mall;
 
 import com.cskaoyan.springboot.demo.bean.Brand;
 import com.cskaoyan.springboot.demo.bean.mall.BrandCondition;
-import com.cskaoyan.springboot.demo.bean.mall.BrandData;
-import com.cskaoyan.springboot.demo.bean.mall.BrandMessage;
+import com.cskaoyan.springboot.demo.bean.mall.DataWithItemAndTotal;
+import com.cskaoyan.springboot.demo.bean.mall.MessageWithData;
 import com.cskaoyan.springboot.demo.service.mallService.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequestMapping("admin")
 public class BrandController {
     @Autowired
     MallService mallService;
@@ -23,10 +24,10 @@ public class BrandController {
      * @return
      */
     @RequestMapping("brand/list")
-    public BrandMessage showBrandList(BrandCondition brandCondition){
+    public MessageWithData showBrandList(BrandCondition brandCondition){
         //注意id可能为空，所以需设置为Integer而不是int，int无法接受null值
-        BrandMessage brandMessage = new BrandMessage();
-        BrandData brandData = new BrandData();
+        MessageWithData messageWithData = new MessageWithData();
+        DataWithItemAndTotal dataWithItemAndTotal = new DataWithItemAndTotal();
         //查询brandList的分页数据
         //List<Brand> brandList = mallService.findBrandListByPage(page, limit);
         List<Brand> brandList = mallService.findBrandListByIdByName(brandCondition.getPage(), brandCondition.getLimit(), brandCondition.getId(), brandCondition.getName());
@@ -34,38 +35,38 @@ public class BrandController {
         int count = mallService.countBrandList();
         if(brandList != null){
             //将查询结果封装入返回的message信息中
-            brandMessage.setErrno(0);
-            brandMessage.setErrmsg("成功");
-            brandData.setItems(brandList);
-            brandData.setTotal(count);
-            brandMessage.setData(brandData);
-            return brandMessage;
+            messageWithData.setErrno(0);
+            messageWithData.setErrmsg("成功");
+            dataWithItemAndTotal.setItems(brandList);
+            dataWithItemAndTotal.setTotal(count);
+            messageWithData.setData(dataWithItemAndTotal);
+            return messageWithData;
         }
         return null;
     }
 
     @RequestMapping("brand/update")
-    public BrandMessage updateBrand(@RequestBody Brand brand){
-        BrandMessage brandMessage = new BrandMessage();
+    public MessageWithData updateBrand(@RequestBody Brand brand){
+        MessageWithData messageWithData = new MessageWithData();
         int num = mallService.updateBrand(brand);
         Brand brandResult = mallService.findBrandById(brand.getId());
         if(num != 0){
-            brandMessage.setErrno(0);
-            brandMessage.setErrmsg("成功");
-            brandMessage.setData(brandResult);
-            return brandMessage;
+            messageWithData.setErrno(0);
+            messageWithData.setErrmsg("成功");
+            messageWithData.setData(brandResult);
+            return messageWithData;
         }
         return null;
     }
 
     @RequestMapping("brand/create")
-    public BrandMessage createBrand(@RequestBody Brand brand){
-        BrandMessage brandMessage = new BrandMessage();
+    public MessageWithData createBrand(@RequestBody Brand brand){
+        MessageWithData messageWithData = new MessageWithData();
         int num = mallService.insertBrand(brand);
         if(num > 0){
-            brandMessage.setErrno(0);
-            brandMessage.setErrmsg("成功");
-            return brandMessage;
+            messageWithData.setErrno(0);
+            messageWithData.setErrmsg("成功");
+            return messageWithData;
         }
         return null;
     }
@@ -76,13 +77,13 @@ public class BrandController {
      * @return
      */
     @RequestMapping("brand/delete")
-    public BrandMessage deleteBrand(@RequestBody Brand brand){
-        BrandMessage brandMessage = new BrandMessage();
+    public MessageWithData deleteBrand(@RequestBody Brand brand){
+        MessageWithData messageWithData = new MessageWithData();
         int num = mallService.deleteBrandById(brand.getId());
         if(num > 0){
-            brandMessage.setErrno(0);
-            brandMessage.setErrmsg("成功");
-            return brandMessage;
+            messageWithData.setErrno(0);
+            messageWithData.setErrmsg("成功");
+            return messageWithData;
         }
         return null;
     }
