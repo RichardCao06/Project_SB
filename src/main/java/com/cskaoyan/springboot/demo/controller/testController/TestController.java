@@ -1,51 +1,80 @@
 package com.cskaoyan.springboot.demo.controller.testController;
 
-import com.cskaoyan.springboot.demo.bean.Data;
-import com.cskaoyan.springboot.demo.bean.Info;
-import com.cskaoyan.springboot.demo.bean.Message;
+import com.cskaoyan.springboot.demo.bean.*;
+import com.cskaoyan.springboot.demo.mapper.AdminMapper;
+import com.cskaoyan.springboot.demo.realm.MallToken;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("admin/auth")
 public class TestController {
 
+    @Resource
+    AdminMapper adminMapper;
 
-    @RequestMapping("auth/login")
+    @RequestMapping("login")
     @ResponseBody
-    public Message login(){
-        Message message = new Message();
-        message.setErrno(0);
-        message.setData("7a92419d-0e29-4c1a-9a3f-b5b890cb8a38");
-        message.setErrmsg("成功");
-        return message;
+    public BaseRespModel login(@RequestBody Admin admin){
+
+        String username = admin.getUsername();
+        String password = admin.getPassword();
+        MallToken mallToken = new MallToken(username,password,"admin");
+        Subject subject = SecurityUtils.getSubject();
+        subject.login(mallToken);
+        BaseRespModel<Object> model = new BaseRespModel<>();
+        model.setErrno(0);
+        Serializable id = subject.getSession().getId();
+        model.setData(id);
+        model.setErrmsg("成功");
+        return model;
     }
 
-    @RequestMapping("auth/info")
+    @RequestMapping("info")
     @ResponseBody
     public Info info(){
+        String principal = (String) SecurityUtils.getSubject().getPrincipal();//获取用户名
         Info info = new Info();
         info.setErrno(0);
         info.setErrmsg("成功");
         Data data = new Data();
-        data.setName("admin123");
-        data.setAvatar("https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
-        List<String> perms = new ArrayList<>();
-        perms.add("*");
+        data.setName(principal);
+        AdminVo adminVo = new AdminVo();
+
+        adminVo = adminMapper.queryAdmin(principal);
+        data.setAvatar(adminVo.getAvatar());
+        List<String> perms = adminMapper.queryPermissionsByUserName(principal);
         List<String> roles = new ArrayList<>();
-        roles.add("超级管理员");
+        roles.add(adminVo.getName());
         data.setPerms(perms);
         data.setRoles(roles);
         info.setData(data);
-        System.out.println(info);
         return info;
 
     }
+
+    @RequestMapping("logout")
+    @ResponseBody
+    public BaseRespModel logout(){
+        SecurityUtils.getSubject().logout();
+        BaseRespModel baseRespModel = new BaseRespModel();
+        baseRespModel.setErrno(0);
+        baseRespModel.setErrmsg("成功");
+
+        return baseRespModel;
+
+    }
+
 
 
 }
