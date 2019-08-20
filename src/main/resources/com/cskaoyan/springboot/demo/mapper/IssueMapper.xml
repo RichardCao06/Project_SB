@@ -9,6 +9,10 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+
+  <select id="queryIssueById" resultType="int">
+    select id from cskaoyan_mall_issue order by add_time desc limit 1
+  </select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

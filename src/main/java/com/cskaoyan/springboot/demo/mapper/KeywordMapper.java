@@ -2,8 +2,9 @@ package com.cskaoyan.springboot.demo.mapper;
 
 import com.cskaoyan.springboot.demo.bean.Keyword;
 import com.cskaoyan.springboot.demo.bean.KeywordExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface KeywordMapper {
     long countByExample(KeywordExample example);
@@ -27,4 +28,6 @@ public interface KeywordMapper {
     int updateByPrimaryKeySelective(Keyword record);
 
     int updateByPrimaryKey(Keyword record);
+
+    int queryKeywordById();
 }

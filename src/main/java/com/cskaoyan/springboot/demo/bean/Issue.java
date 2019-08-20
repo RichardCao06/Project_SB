@@ -1,6 +1,6 @@
 package com.cskaoyan.springboot.demo.bean;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Issue {
     private Integer id;
@@ -9,9 +9,9 @@ public class Issue {
 
     private String answer;
 
-    private Date addTime;
+    private LocalDateTime addTime;
 
-    private Date updateTime;
+    private LocalDateTime updateTime;
 
     private Boolean deleted;
 
@@ -39,19 +39,19 @@ public class Issue {
         this.answer = answer == null ? null : answer.trim();
     }
 
-    public Date getAddTime() {
+    public LocalDateTime getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Date addTime) {
+    public void setAddTime(LocalDateTime addTime) {
         this.addTime = addTime;
     }
 
-    public Date getUpdateTime() {
+    public LocalDateTime getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
 
