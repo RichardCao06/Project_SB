@@ -169,4 +169,11 @@ public interface MallService {
      * @return
      */
     int insertBrand(Brand brand);
+
+    /**
+     * 根据id查找商品类目
+     * @param id
+     * @return
+     */
+    CategoryLevelOne findCategoryById(int id);
 }

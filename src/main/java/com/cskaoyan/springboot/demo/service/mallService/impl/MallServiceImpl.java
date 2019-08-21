@@ -250,4 +250,10 @@ public class MallServiceImpl implements MallService {
         int i = brandListMapper.insertBrand(brand);
         return i;
     }
+
+    @Override
+    public CategoryLevelOne findCategoryById(int id) {
+        CategoryLevelOne categoryById = categoryListMapper.findCategoryById(id);
+        return categoryById;
+    }
 }

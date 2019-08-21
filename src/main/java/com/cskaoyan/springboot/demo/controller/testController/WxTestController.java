@@ -1,4 +1,4 @@
-package com.cskaoyan.springboot.demo.controller.testController;
+/*package com.cskaoyan.springboot.demo.controller.testController;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,4 +11,4 @@ public class WxTestController {
     public String firstTest(){
         return "hello";
     }
-}
+}*/
