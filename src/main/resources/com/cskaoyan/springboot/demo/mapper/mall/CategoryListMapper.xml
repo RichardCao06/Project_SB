@@ -31,6 +31,20 @@
         where levels = #{level}
     </select>
 
+    <select id="findCategoryById" resultMap="categoryMapper">
+        select
+        id,
+        name,
+        keywords,
+        description,
+        pid,
+        icon_url,
+        pic_url,
+        levels,
+        deleted
+        from cskaoyan_mall_category
+        where id = #{id}
+    </select>
 
     <resultMap id="categoryLevel2Mapper" type="com.cskaoyan.springboot.demo.bean.mall.CategoryLevelTwo">
         <result property="id" column="id"></result>
