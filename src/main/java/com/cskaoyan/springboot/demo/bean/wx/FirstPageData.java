@@ -1,10 +1,8 @@
 package com.cskaoyan.springboot.demo.bean.wx;
 
-import com.cskaoyan.springboot.demo.bean.Ad;
-import com.cskaoyan.springboot.demo.bean.Brand;
-import com.cskaoyan.springboot.demo.bean.Coupon;
-import com.cskaoyan.springboot.demo.bean.Groupon;
+import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne;
+import com.cskaoyan.springboot.demo.bean.wx.category.FloorGoodsData;
 
 import java.util.List;
 
@@ -14,9 +12,34 @@ public class FirstPageData {
     private List<CategoryLevelOne> channel;
     private List<Coupon> couponList;
     private List<Groupon> grouponList;
+    private List<FloorGoodsData> floorGoodsList;
+    private List<Goods> hotGoodsList;
+    private List<Goods> newGoodsList;
+    private List<Topic> topicList;
 
+    public List<Topic> getTopicList() {
+        return topicList;
+    }
 
+    public void setTopicList(List<Topic> topicList) {
+        this.topicList = topicList;
+    }
 
+    public List<Goods> getNewGoodsList() {
+        return newGoodsList;
+    }
+
+    public void setNewGoodsList(List<Goods> newGoodsList) {
+        this.newGoodsList = newGoodsList;
+    }
+
+    public List<Goods> getHotGoodsList() {
+        return hotGoodsList;
+    }
+
+    public void setHotGoodsList(List<Goods> hotGoodsList) {
+        this.hotGoodsList = hotGoodsList;
+    }
 
     public List<Ad> getBanner() {
         return banner;
@@ -58,6 +81,14 @@ public class FirstPageData {
         this.grouponList = grouponList;
     }
 
+    public List<FloorGoodsData> getFloorGoodsList() {
+        return floorGoodsList;
+    }
+
+    public void setFloorGoodsList(List<FloorGoodsData> floorGoodsList) {
+        this.floorGoodsList = floorGoodsList;
+    }
+
     @Override
     public String toString() {
         return "FirstPageData{" +
@@ -66,6 +97,10 @@ public class FirstPageData {
                 ", channel=" + channel +
                 ", couponList=" + couponList +
                 ", grouponList=" + grouponList +
+                ", floorGoodsList=" + floorGoodsList +
+                ", hotGoodsList=" + hotGoodsList +
+                ", newGoodsList=" + newGoodsList +
+                ", topicList=" + topicList +
                 '}';
     }
 }

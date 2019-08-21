@@ -4,7 +4,9 @@ import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryData;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne;
 import com.cskaoyan.springboot.demo.bean.Storage;
+import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelTwo;
 import com.cskaoyan.springboot.demo.bean.mall.Province;
+import com.cskaoyan.springboot.demo.bean.wx.category.FloorGoodsData;
 import com.cskaoyan.springboot.demo.mapper.*;
 import com.cskaoyan.springboot.demo.mapper.mall.BrandListMapper;
 import com.cskaoyan.springboot.demo.mapper.mall.CategoryListMapper;
@@ -40,6 +42,12 @@ public class MallServiceImpl implements MallService {
     StorageMapper storageMapper;
     @Autowired
     StorageListMapper storageListMapper;
+    @Autowired
+    GoodsMapper goodsMapper;
+    @Autowired
+    TopicMapper topicMapper;
+    @Autowired
+    AdMapper adMapper;
 
 
     @Override
@@ -255,5 +263,74 @@ public class MallServiceImpl implements MallService {
     public CategoryLevelOne findCategoryById(int id) {
         CategoryLevelOne categoryById = categoryListMapper.findCategoryById(id);
         return categoryById;
+    }
+
+    @Override
+    public List<FloorGoodsData> findCategoryGoods() {
+        List<FloorGoodsData> floorGoodsDataList = new ArrayList<>();
+
+        //1. 获取所有的1级目录
+        List<CategoryLevelOne> categoryList = categoryListMapper.findCategoryList("L1");
+
+        //2. 遍历所有的1级目录，获取其id，name，和二级目录
+        for(CategoryLevelOne categoryLevelOne:categoryList){
+            FloorGoodsData floorGoodsData = new FloorGoodsData();
+            floorGoodsData.setId(categoryLevelOne.getId());
+            floorGoodsData.setName(categoryLevelOne.getName());
+            List<CategoryLevelTwo> categoryLevelTwos = categoryLevelOne.getChildren();
+            List<Goods> goodsList = new ArrayList<>();
+            //遍历2级类目，并获取对应类目下的所有商品
+            for(CategoryLevelTwo categoryLevelTwo:categoryLevelTwos){
+                Integer cid = categoryLevelTwo.getId();
+                //根据2级类目的id获取对应的商品列表
+                GoodsExample goodsExample = new GoodsExample();
+                goodsExample.createCriteria().andCategoryIdEqualTo(cid);
+                List<Goods> goods = goodsMapper.selectByExample(goodsExample);
+                //将查询到的goods到List之中
+                for(Goods good:goods){
+                    goodsList.add(good);
+                }
+
+            }
+            floorGoodsData.setGoodsList(goodsList);
+            floorGoodsDataList.add(floorGoodsData);
+
+        }
+
+        return floorGoodsDataList;
+    }
+
+    @Override
+    public List<Goods> findWxHotGoodsListByPage(int page, int limit) {
+        PageHelper.startPage(page,limit);
+        GoodsExample goodsExample = new GoodsExample();
+        goodsExample.createCriteria().andIsHotEqualTo(true);
+        List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
+        return goodsList;
+    }
+
+    @Override
+    public List<Goods> findWxNewGoodsListByPage(int page, int limit) {
+        PageHelper.startPage(page,limit);
+        GoodsExample goodsExample = new GoodsExample();
+        GoodsExample.Criteria criteria = goodsExample.createCriteria().andIsNewEqualTo(true);
+        List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
+        return goodsList;
+    }
+
+    @Override
+    public List<Topic> findWxTopicList() {
+        TopicExample topicExample = new TopicExample();
+        topicExample.createCriteria();
+        List<Topic> topicList = topicMapper.selectByExample(topicExample);
+        return topicList;
+    }
+
+    @Override
+    public List<Ad> findWxAdList() {
+        AdExample adExample = new AdExample();
+        adExample.createCriteria();
+        List<Ad> ads = adMapper.selectByExample(adExample);
+        return ads;
     }
 }
