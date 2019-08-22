@@ -3,9 +3,11 @@ package com.cskaoyan.springboot.demo.service.mallService;
 import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryData;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne;
-import com.cskaoyan.springboot.demo.bean.Storage;
 import com.cskaoyan.springboot.demo.bean.mall.Province;
 import com.cskaoyan.springboot.demo.bean.wx.category.FloorGoodsData;
+import com.cskaoyan.springboot.demo.bean.wx.order.SubmitData;
+import com.cskaoyan.springboot.demo.bean.wx.order.WxCheckOrderData;
+import com.cskaoyan.springboot.demo.bean.wx.order.WxOrderData;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -23,7 +25,7 @@ public interface MallService {
      * @param limit
      * @return
      */
-    List<Brand> findBrandListByPage(int page,int limit);
+    List<Brand> findBrandListByPage(int page, int limit);
 
     /**
      * 查找Brand的总数
@@ -60,7 +62,7 @@ public interface MallService {
      * @param name
      * @return
      */
-    List<Brand> findBrandListByIdByName(int page,int limit,Integer id, String name);
+    List<Brand> findBrandListByIdByName(int page, int limit, Integer id, String name);
 
     /**
      * 返回所有的categoryList数据
@@ -209,4 +211,25 @@ public interface MallService {
      * @return
      */
     List<Ad> findWxAdList();
+
+    /**
+     * 保存订单数据入cart表
+     * @param cart
+     */
+    void WxInsertCart(Cart cart);
+
+    WxCheckOrderData createWxCheckOrder(int cartId, int addressId, int couponId, int grouponRulesId);
+
+    /**
+     * 根据提交的信息生成订单
+     * @param submitData
+     */
+    void insertWxOrder(SubmitData submitData);
+
+    /**
+     * 获取订单列表
+     */
+    List<WxOrderData> getWxOrderDataList();
+
+    List<WxOrderData> getWxOrderDataListByShowType(int showType, int page, int size);
 }

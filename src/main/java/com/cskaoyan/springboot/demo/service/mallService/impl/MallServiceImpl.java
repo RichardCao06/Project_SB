@@ -3,10 +3,12 @@ package com.cskaoyan.springboot.demo.service.mallService.impl;
 import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryData;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne;
-import com.cskaoyan.springboot.demo.bean.Storage;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelTwo;
 import com.cskaoyan.springboot.demo.bean.mall.Province;
 import com.cskaoyan.springboot.demo.bean.wx.category.FloorGoodsData;
+import com.cskaoyan.springboot.demo.bean.wx.order.SubmitData;
+import com.cskaoyan.springboot.demo.bean.wx.order.WxCheckOrderData;
+import com.cskaoyan.springboot.demo.bean.wx.order.WxOrderData;
 import com.cskaoyan.springboot.demo.mapper.*;
 import com.cskaoyan.springboot.demo.mapper.mall.BrandListMapper;
 import com.cskaoyan.springboot.demo.mapper.mall.CategoryListMapper;
@@ -19,7 +21,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.lang.System;
-import java.util.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 public class MallServiceImpl implements MallService {
@@ -48,6 +54,16 @@ public class MallServiceImpl implements MallService {
     TopicMapper topicMapper;
     @Autowired
     AdMapper adMapper;
+    @Autowired
+    CartMapper cartMapper;
+    @Autowired
+    AddressMapper addressMapper;
+    @Autowired
+    CouponMapper couponMapper;
+    @Autowired
+    GrouponRulesMapper grouponRulesMapper;
+
+
 
 
     @Override
@@ -332,5 +348,248 @@ public class MallServiceImpl implements MallService {
         adExample.createCriteria();
         List<Ad> ads = adMapper.selectByExample(adExample);
         return ads;
+    }
+
+
+    @Override
+    public void WxInsertCart(Cart cart) {
+        //1. 更加goodsId查找goods信息
+        Integer goodsId = cart.getGoodsId();
+        Goods goods = goodsMapper.selectByPrimaryKey(goodsId);
+        //2. 获取goods的相关信息并放到cart内
+        String goodsSn = goods.getGoodsSn();
+        cart.setGoodsSn(goodsSn);
+        String name = goods.getName();
+        cart.setGoodsName(name);
+        Short number = cart.getNumber();
+        BigDecimal retailPrice = goods.getRetailPrice();
+        BigDecimal totalNumber = new BigDecimal(number);
+        BigDecimal totalPrice = retailPrice.multiply(totalNumber);
+        cart.setPrice(totalPrice);
+        System.out.println(cart);
+        //3. 将cart数据保存如数据库
+        int insert = cartMapper.insert(cart);
+        System.out.println(insert);
+    }
+
+
+    @Override
+    public WxCheckOrderData createWxCheckOrder(int cartId, int addressId, int couponId, int grouponRulesId) {
+        WxCheckOrderData wxCheckOrderData = new WxCheckOrderData();
+        //1. 根据cartId获取cart信息
+        Cart cart = cartMapper.selectByPrimaryKey(cartId);
+        BigDecimal price = cart.getPrice();
+        //获取商品总价
+        double goodsTotallPrice = price.doubleValue();
+        wxCheckOrderData.setGoodsTotalPrice(goodsTotallPrice);
+        //保存地址id
+        wxCheckOrderData.setAddressId(addressId);
+        //2. 根据地址id获取地址数据
+        Address address = addressMapper.selectByPrimaryKey(addressId);
+        wxCheckOrderData.setCheckAddress(address);
+        //3. 获取商品信息
+        Integer goodsId = cart.getGoodsId();
+        Goods goods = goodsMapper.selectByPrimaryKey(goodsId);
+        List<Goods> goodsList = new ArrayList<>();
+        goodsList.add(goods);
+        wxCheckOrderData.setCheckGoodsList(goodsList);
+        //4. 根据优惠券id查找优惠券信息
+        wxCheckOrderData.setCouponId(couponId);
+        //Coupon coupon = couponMapper.selectByPrimaryKey(couponId);
+        //5. 判断是否添加运费,商品价格小于88则加8元运费
+        double freightPrice = 0;
+        if (goodsTotallPrice < 88){
+            freightPrice = 8;
+        }
+        wxCheckOrderData.setFreightPrice(freightPrice);
+        //6.计算订单总价（含运费）
+        double actualPrice = goodsTotallPrice + freightPrice;
+        wxCheckOrderData.setActuralPrice(actualPrice);
+        //7.根据团购id获取团购信息
+        wxCheckOrderData.setGrouponRulesId(grouponRulesId);
+        GrouponRules grouponRules = grouponRulesMapper.selectByPrimaryKey(grouponRulesId);
+        BigDecimal discount = grouponRules.getDiscount();
+        double grouponPrice = discount.doubleValue();
+        wxCheckOrderData.setGrouponPrice(grouponPrice);
+        //8. 计算订单总价，订单总价为实际价格减去团购优惠
+        double orderTotalPrice = actualPrice - grouponPrice;
+        wxCheckOrderData.setOrderTotalPrice(orderTotalPrice);
+
+
+        return wxCheckOrderData;
+    }
+
+    @Override
+    public void insertWxOrder(SubmitData submitData) {
+        Order order = new Order();
+        //1. 根据addressId获取address信息
+        int addressId = submitData.getAddressId();
+        Address address = addressMapper.selectByPrimaryKey(addressId);
+        String orderAddress = address.getAddress();
+        order.setAddress(orderAddress);
+        String mobile = address.getMobile();
+        order.setMobile(mobile);
+        String message = submitData.getMessage();
+        order.setMessage(message);
+        //储存收件人信息
+        String name = address.getName();
+        order.setConsignee(name);
+        //2. 根据cartId获取cart信息
+        int cartId = submitData.getCartId();
+        Cart cart = cartMapper.selectByPrimaryKey(cartId);
+        BigDecimal goodsprice = cart.getPrice();
+        double totalGoodsPrice = goodsprice.doubleValue();
+        order.setGoodsPrice(goodsprice);
+        //3. 判断是否有运费
+        BigDecimal freightPrice = new BigDecimal(0);
+        if(totalGoodsPrice < 88){
+            freightPrice = new BigDecimal(8);
+        }
+        order.setFreightPrice(freightPrice);
+        //4. 根据couponId获取coupon信息
+        BigDecimal couponPrcie = new BigDecimal(0);
+
+        //5. 根据groupId获取groupon信息
+        int grouponRulesId = submitData.getGrouponRulesId();
+        GrouponRules grouponRules = grouponRulesMapper.selectByPrimaryKey(grouponRulesId);
+        BigDecimal discount = grouponRules.getDiscount();
+        BigDecimal grouponPrice = goodsprice.subtract(discount);
+        order.setGrouponPrice(grouponPrice);
+
+        //6. 计算orderPrice(商品价格减优惠券价格减团购优惠价格）
+        BigDecimal orderPrice = goodsprice.subtract(discount).subtract(couponPrcie);
+        order.setOrderPrice(orderPrice);
+        //7. 计算实际价格actualPrice
+        BigDecimal actualPrice = orderPrice.add(freightPrice);
+        order.setActualPrice(actualPrice);
+        System.out.println(order);
+        //8. 将order数据插入数据库
+        //orderMapper.insert(order);
+        OrderExample orderExample = new OrderExample();
+        orderExample.createCriteria();
+        int i = orderMapper.updateByExampleSelective(order, orderExample);
+        System.out.println(i);
+    }
+
+    @Override
+    public List<WxOrderData> getWxOrderDataList() {
+
+            //1. 获取所有的order
+            OrderExample orderExample = new OrderExample();
+            orderExample.createCriteria();
+            List<Order> orderList = orderMapper.selectByExample(orderExample);
+            List<WxOrderData> wxOrderDataList = new ArrayList<>();
+            for(Order order:orderList){
+                WxOrderData wxOrderData = new WxOrderData();
+                BigDecimal actualPrice = order.getActualPrice();
+                //1. 获取实际付款
+                double wxActualPrice = actualPrice.doubleValue();
+                wxOrderData.setActualPrice(wxActualPrice);
+                //2. 获取订单id
+                Integer id = order.getId();
+                wxOrderData.setId(id);
+                //3. 根据订单id获取商品
+                OrderGoodsExample orderGoodsExample = new OrderGoodsExample();
+                orderGoodsExample.createCriteria().andOrderIdEqualTo(id);
+                List<OrderGoods> goods = orderGoodsMapper.selectByExample(orderGoodsExample);
+                wxOrderData.setGoodsList(goods);
+                //4. 获取isGroupIn
+
+                //5. 获取orderSn
+                String orderSn = order.getOrderSn();
+                wxOrderData.setOrderSn(orderSn);
+                //6. 获取orderStatusText
+                Short orderStatus = order.getOrderStatus();
+                String orderStatusText = orderStatusToText(orderStatus);
+                wxOrderData.setOrderStatusText(orderStatusText);
+                wxOrderDataList.add(wxOrderData);
+            }
+
+        return wxOrderDataList;
+    }
+
+    /**
+     * 分类展示OrderList
+     * @param showType
+     * @param page
+     * @param size
+     * @return
+     */
+    public List<WxOrderData> getWxOrderDataListByShowType(int showType, int page, int size){
+        //1. 获取所有的order
+        List<WxOrderData> wxOrderDataList = getWxOrderDataList();
+        List<WxOrderData> wxOrderTypeList = new ArrayList<>();
+        if(showType == 1){
+            for(WxOrderData orderData:wxOrderDataList){
+                if(orderData.getOrderStatusText() == "未付款"){
+                    wxOrderTypeList.add(orderData);
+                }
+            }
+            return wxOrderTypeList;
+        }
+        if(showType == 2){
+            for(WxOrderData orderData:wxOrderDataList){
+                if(orderData.getOrderStatusText() == "已付款"){
+                    wxOrderTypeList.add(orderData);
+                }
+            }
+            return wxOrderTypeList;
+        }
+
+        if(showType == 3){
+            for(WxOrderData orderData:wxOrderDataList){
+                if(orderData.getOrderStatusText() == "已发货"){
+                    wxOrderTypeList.add(orderData);
+                }
+            }
+            return wxOrderTypeList;
+        }
+
+        if(showType == 4){
+            for(WxOrderData orderData:wxOrderDataList){
+                if(orderData.getOrderStatusText() == "已收货"){
+                    wxOrderTypeList.add(orderData);
+                }
+            }
+            return wxOrderTypeList;
+        }
+
+        //如果不是以上条件则返回所有的orderlist
+        return wxOrderDataList;
+    }
+
+
+    /**
+     * 将status数字转换为对应的文本
+     * @param orderStatus
+     * @return
+     */
+    public String orderStatusToText(Short orderStatus){
+        switch (orderStatus){
+            case 101:
+                return "未付款";
+            case 102:
+                return "用户取消";
+
+            case 103:
+                return "系统取消";
+
+            case 301:
+                return "已发货";
+
+            case 203:
+                return "已退款";
+
+            case 457:
+                return "申请退款";
+
+            case 201:
+                return "已付款";
+
+
+                default:
+                    return null;
+
+        }
     }
 }
