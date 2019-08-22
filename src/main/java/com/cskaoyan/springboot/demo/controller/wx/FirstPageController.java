@@ -7,7 +7,6 @@ import com.cskaoyan.springboot.demo.bean.mall.DataWithItemAndTotal;
 import com.cskaoyan.springboot.demo.bean.mall.MessageWithData;
 import com.cskaoyan.springboot.demo.bean.wx.FirstPageData;
 import com.cskaoyan.springboot.demo.bean.wx.category.FloorGoodsData;
-import com.cskaoyan.springboot.demo.service.groupService.GroupService;
 import com.cskaoyan.springboot.demo.service.mallService.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +20,8 @@ public class FirstPageController {
 
     @Autowired
     MallService mallService;
-    @Autowired
-    GroupService groupService;
+    //@Autowired
+    //GroupService groupService;
 
     @RequestMapping("home/index")
     public MessageWithData showFirstPage(){
@@ -44,9 +43,9 @@ public class FirstPageController {
         firstPageData.setFloorGoodsList(floorGoodsDataList);
 
         //5. 获取四个团购列表
-        DataWithItemAndTotal groupRulesListByPageByCondition = groupService.findGroupRulesListByPageByCondition(1, 4, null);
+        /*DataWithItemAndTotal groupRulesListByPageByCondition = groupService.findGroupRulesListByPageByCondition(1, 4, null);
         List<Groupon> grouponList = groupRulesListByPageByCondition.getItems();
-        firstPageData.setGrouponList(grouponList);
+        firstPageData.setGrouponList(grouponList);*/
 
         //6. 获取热门商品列表
         List<Goods> hotGoodsList = mallService.findWxHotGoodsListByPage(1,5);
