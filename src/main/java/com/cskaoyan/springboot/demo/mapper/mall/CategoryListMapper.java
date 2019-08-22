@@ -21,4 +21,6 @@ public interface CategoryListMapper {
     int deleteCategory(@Param("id") int id);
 
     int insertCategory(@Param("category") Category category);
+
+    CategoryLevelOne findCategoryById(@Param("id") int id);
 }

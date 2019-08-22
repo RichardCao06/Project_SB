@@ -5,6 +5,7 @@ import com.cskaoyan.springboot.demo.bean.mall.CategoryData;
 import com.cskaoyan.springboot.demo.bean.mall.CategoryLevelOne;
 import com.cskaoyan.springboot.demo.bean.Storage;
 import com.cskaoyan.springboot.demo.bean.mall.Province;
+import com.cskaoyan.springboot.demo.bean.wx.category.FloorGoodsData;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -169,4 +170,43 @@ public interface MallService {
      * @return
      */
     int insertBrand(Brand brand);
+
+    /**
+     * 根据id查找商品类目
+     * @param id
+     * @return
+     */
+    CategoryLevelOne findCategoryById(int id);
+
+    /**
+     * 查找四个1级类目下的全部商品
+     * @return
+     */
+    List<FloorGoodsData> findCategoryGoods();
+
+    /**
+     * 查找热门商品
+     * @return
+     */
+    List<Goods> findWxHotGoodsListByPage(int page, int limit);
+
+    /**
+     * 查询新品商品
+     * @param page
+     * @param limit
+     * @return
+     */
+    List<Goods> findWxNewGoodsListByPage(int page, int limit);
+
+    /**
+     * 获取话题列表
+     * @return
+     */
+    List<Topic> findWxTopicList();
+
+    /**
+     * 获取广告列表
+     * @return
+     */
+    List<Ad> findWxAdList();
 }
