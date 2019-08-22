@@ -1,7 +1,7 @@
 package com.cskaoyan.springboot.demo.config;
 
+import com.cskaoyan.springboot.demo.Vo.ResponseVo;
 import com.cskaoyan.springboot.demo.bean.Log;
-import com.cskaoyan.springboot.demo.bean.systembean.ResponseVo;
 import com.cskaoyan.springboot.demo.service.systemservice.LogService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;

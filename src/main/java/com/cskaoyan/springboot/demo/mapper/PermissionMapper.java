@@ -3,6 +3,8 @@ package com.cskaoyan.springboot.demo.mapper;
 import com.cskaoyan.springboot.demo.bean.Permission;
 import com.cskaoyan.springboot.demo.bean.PermissionExample;
 import java.util.List;
+
+import com.cskaoyan.springboot.demo.bean.rolemanage.PerList;
 import org.apache.ibatis.annotations.Param;
 
 public interface PermissionMapper {
@@ -27,4 +29,16 @@ public interface PermissionMapper {
     int updateByPrimaryKeySelective(Permission record);
 
     int updateByPrimaryKey(Permission record);
+
+    List searchPermission(@Param("roleId")int id);
+
+    List superManage();
+
+    int addPermission(@Param("permission")Permission permission);
+
+    int deleteOldPermission(@Param("roleId")int roleId);
+
+    String searchApi(PerList perList);
+
+    String[] queryPermByIds(String[] ids);
 }

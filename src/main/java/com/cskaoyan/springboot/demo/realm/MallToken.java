@@ -3,6 +3,7 @@ package com.cskaoyan.springboot.demo.realm;
 import org.apache.shiro.authc.UsernamePasswordToken;
 
 public class MallToken extends UsernamePasswordToken {
+
     String type;
 
     public String getType() {

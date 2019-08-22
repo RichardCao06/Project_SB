@@ -33,4 +33,7 @@ public interface TopicMapper {
     int updateByPrimaryKeyWithBLOBs(Topic record);
 
     int updateByPrimaryKey(Topic record);
+    List<Topic> getList(@Param("sort") String sort, @Param("order") String order, @Param("title") String title,
+                        @Param("subtitle") String subtitle);
+
 }

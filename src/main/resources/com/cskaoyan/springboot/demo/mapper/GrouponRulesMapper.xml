@@ -72,9 +72,72 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, goods_id, goods_name, pic_url, discount, discount_member, add_time, update_time, 
+    id, goods_id, goods_name, pic_url, discount, discount_member, add_time, update_time,
     expire_time, deleted
   </sql>
+
+  <sql id="Query_List">
+    add_time,
+deleted,
+discount,
+discount_member,
+expire_time,
+goods_id,
+goods_name,
+id,
+pic_url,
+update_time
+  </sql>
+  <!--getList-->
+  <select id="getList"  resultMap="BaseResultMap">
+    select  <include refid="Query_List"/>
+    from cskaoyan_mall_groupon_rules
+    where goods_id like "%" #{goodsId} "%"
+    order by #{sort}  #{order}
+  </select>
+  <!--create-->
+  <insert id="create" parameterType="com.cskaoyan.springboot.demo.bean.GrouponRules" keyProperty="id" useGeneratedKeys="true">
+    insert into cskaoyan_mall_groupon_rules ( goods_id, goods_name,
+                                             pic_url, discount, discount_member,
+                                             add_time, update_time, expire_time,
+                                             deleted)
+    values ( #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR},
+            #{picUrl,jdbcType=VARCHAR}, #{discount,jdbcType=DECIMAL}, #{discountMember,jdbcType=INTEGER},
+            #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP},
+            #{deleted,jdbcType=BIT})
+  </insert>
+  <!--findGoodsId-->
+  <select id="findGoodsId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from cskaoyan_mall_groupon_rules
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </select>
+  <!--queryAll-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from cskaoyan_mall_groupon_rules
+  </select>
+  <!--count-->
+  <select id="count" resultType="_int">
+    select  count(id) from cskaoyan_mall_groupon_rules ;
+  </select>
+  <select id="getGrouponRulesByGoodsId" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_groupon_rules
+    where deleted = 0 and goods_id = #{goodsId}
+  </select>
+
+
+
+
+
+
+
+
+
+
   <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.GrouponRulesExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -90,7 +153,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_groupon_rules
     where id = #{id,jdbcType=INTEGER}
@@ -106,13 +169,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.GrouponRules">
-    insert into cskaoyan_mall_groupon_rules (id, goods_id, goods_name, 
-      pic_url, discount, discount_member, 
-      add_time, update_time, expire_time, 
+    insert into cskaoyan_mall_groupon_rules (id, goods_id, goods_name,
+      pic_url, discount, discount_member,
+      add_time, update_time, expire_time,
       deleted)
-    values (#{id,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, 
-      #{picUrl,jdbcType=VARCHAR}, #{discount,jdbcType=DECIMAL}, #{discountMember,jdbcType=INTEGER}, 
-      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR},
+      #{picUrl,jdbcType=VARCHAR}, #{discount,jdbcType=DECIMAL}, #{discountMember,jdbcType=INTEGER},
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP},
       #{deleted,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.GrouponRules">
@@ -229,15 +292,15 @@
   <update id="updateByExample" parameterType="map">
     update cskaoyan_mall_groupon_rules
     set id = #{record.id,jdbcType=INTEGER},
-      goods_id = #{record.goodsId,jdbcType=INTEGER},
-      goods_name = #{record.goodsName,jdbcType=VARCHAR},
-      pic_url = #{record.picUrl,jdbcType=VARCHAR},
-      discount = #{record.discount,jdbcType=DECIMAL},
-      discount_member = #{record.discountMember,jdbcType=INTEGER},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      expire_time = #{record.expireTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT}
+    goods_id = #{record.goodsId,jdbcType=INTEGER},
+    goods_name = #{record.goodsName,jdbcType=VARCHAR},
+    pic_url = #{record.picUrl,jdbcType=VARCHAR},
+    discount = #{record.discount,jdbcType=DECIMAL},
+    discount_member = #{record.discountMember,jdbcType=INTEGER},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    expire_time = #{record.expireTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -288,4 +351,7 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
 </mapper>

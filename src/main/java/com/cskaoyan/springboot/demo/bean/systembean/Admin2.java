@@ -1,5 +1,6 @@
 package com.cskaoyan.springboot.demo.bean.systembean;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class Admin2 {
@@ -101,5 +102,21 @@ public class Admin2 {
 
     public void setRoleIds(int[] roleIds) {
         this.roleIds = roleIds;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin2{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", lastLoginIp='" + lastLoginIp + '\'' +
+                ", lastLoginTime=" + lastLoginTime +
+                ", avatar='" + avatar + '\'' +
+                ", addTime=" + addTime +
+                ", updateTime=" + updateTime +
+                ", deleted=" + deleted +
+                ", roleIds=" + Arrays.toString(roleIds) +
+                '}';
     }
 }

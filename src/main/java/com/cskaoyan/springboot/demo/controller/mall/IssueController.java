@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
+@RequestMapping("admin/issue")
 public class IssueController {
 
     @Autowired
     IssueService issueService;
 
-    @RequestMapping("issue/list")
+    @RequestMapping("list")
     @ResponseBody
     public IssueVo findKeyword(String question, int page, int limit){
 
@@ -38,7 +39,7 @@ public class IssueController {
         return issueVo;
     }
 
-    @RequestMapping("issue/update")
+    @RequestMapping("update")
     @ResponseBody
     public IssueVo update(@RequestBody Issue issue){
 
@@ -50,7 +51,7 @@ public class IssueController {
         return issueVo;
     }
 
-    @RequestMapping("issue/create")
+    @RequestMapping("create")
     @ResponseBody
     public IssueBean create(@RequestBody Issue issue){
 
@@ -64,7 +65,7 @@ public class IssueController {
 
     }
 
-    @RequestMapping("issue/delete")
+    @RequestMapping("delete")
     @ResponseBody
     public IssueVo delete(@RequestBody Issue issue){
 

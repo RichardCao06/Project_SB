@@ -27,4 +27,5 @@ public interface CouponUserMapper {
     int updateByPrimaryKeySelective(CouponUser record);
 
     int updateByPrimaryKey(CouponUser record);
+    List<CouponUser> getListUser( String sort, String order, int couponId , String userId,String status);
 }

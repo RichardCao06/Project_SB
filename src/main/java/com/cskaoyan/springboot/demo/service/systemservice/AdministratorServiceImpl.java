@@ -1,11 +1,17 @@
 package com.cskaoyan.springboot.demo.service.systemservice;
 
+import com.cskaoyan.springboot.demo.bean.Admin;
+import com.cskaoyan.springboot.demo.bean.AdminExample;
 import com.cskaoyan.springboot.demo.bean.Role;
 import com.cskaoyan.springboot.demo.bean.RoleExample;
 import com.cskaoyan.springboot.demo.bean.systembean.*;
 import com.cskaoyan.springboot.demo.mapper.AdminMapper;
 import com.cskaoyan.springboot.demo.mapper.RoleMapper;
 import com.cskaoyan.springboot.demo.util.Md5Util;
+import com.cskaoyan.springboot.demo.util.MyException;
+import com.cskaoyan.springboot.demo.util.ServiceLog;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,38 +51,55 @@ public class AdministratorServiceImpl implements AdministratorService {
     }
 
     @Override
-    public ResponseVo insertAdmin(Admin2 admin) {
-        String s = "yyyy-MM-dd HH:mm:ss";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(s);
-        Date parse = new Date();
-        String format = dateFormat.format(parse);
-        System.out.println(format);
-
-        admin.setAddTime(parse);
-        admin.setUpdateTime(parse);
+    @ServiceLog
+    public ResponseVo insertAdmin(Admin2 admin){
+        /*用户名查重判断*/
         ResponseVo<Object> responseVo = new ResponseVo<>();
-        responseVo.setErrno(0);
-        String password = Md5Util.getMD5(admin.getPassword());
-        admin.setPassword(password);
-        System.out.println(admin.getPassword());
-        int status = adminMapper.creatAdmin(admin);
-        if(status == 1){
-            responseVo.setErrmsg("成功");
-        }else {
-            responseVo.setErrmsg("失败");
+        AdminExample example = new AdminExample();
+        example.createCriteria().andUsernameEqualTo(admin.getUsername());
+        List<Admin> admins = adminMapper.selectByExample(example);
+        if(admins.size() != 0){
+            responseVo.setErrmsg("用户名已经存在");
+            responseVo.setErrno(1);
+            responseVo.setData(null);
+            //return responseVo;
+            throw new MyException();//抛出自定义异常，转入日志处理异常信息
+            //return responseVo;
         }
-        Admin2 admin2 = adminMapper.returnByName(admin.getUsername());
+        else {
+            String s = "yyyy-MM-dd HH:mm:ss";
+            SimpleDateFormat dateFormat = new SimpleDateFormat(s);
+            Date parse = new Date();
+            String format = dateFormat.format(parse);
+            System.out.println(format);
 
-        responseVo.setData(admin2);
+            admin.setAddTime(parse);
+            admin.setUpdateTime(parse);
 
-        //setlog(admin,"新增管理员" );
-        return responseVo;
+            responseVo.setErrno(0);
+            String password = Md5Util.getMD5(admin.getPassword());
+            admin.setPassword(password);
+            int status = adminMapper.creatAdmin(admin);
+            if (status == 1) {
+                responseVo.setErrmsg("成功");
+            } else {
+                responseVo.setErrmsg("失败");
+            }
+            Admin2 admin2 = adminMapper.returnByName(admin.getUsername());
+
+            responseVo.setData(admin2);
+
+            //setlog(admin,"新增管理员" );
+            return responseVo;
+        }
     }
 
     @Override
+    @ServiceLog
     public ResponseVo deleteAdmin(int id) {
         int i = adminMapper.deleteByPrimaryKey(id);
         ResponseVo<Object> responseVo = new ResponseVo<>();
+        //int j = 1/0;
         if(i == 1){
             responseVo.setErrmsg("成功");
         }else {
@@ -88,6 +111,7 @@ public class AdministratorServiceImpl implements AdministratorService {
     }
 
     @Override
+    @ServiceLog
     public ResponseVo updateAdmin(Admin2 admin) {
         int i = adminMapper.updateByPrimaryKey(admin);
         ResponseVo<Object> responseVo = new ResponseVo<>();
@@ -112,22 +136,21 @@ public class AdministratorServiceImpl implements AdministratorService {
     }
 
     @Override
-    public ResponseVo searchByName(String username) {
+    public ResponseVo searchByName(int page,int limit,String username) {
+        PageHelper.startPage(page,limit);
+
         username = "%" + username + "%";
         List<AdminCustom> adminCustoms = adminMapper.searchByName(username);
+
+        PageInfo<AdminCustom> pageInfo = new PageInfo<>(adminCustoms);
         SystemRole2 role2 = new SystemRole2();
         role2.setItems(adminCustoms);
-        role2.setTotal(adminCustoms.size());
-        ResponseVo<Object> responseVo = new ResponseVo<>();
+        role2.setTotal((int) pageInfo.getTotal());
+        ResponseVo<SystemRole2> responseVo = new ResponseVo<>();
         responseVo.setData(role2);
         responseVo.setErrno(0);
         responseVo.setErrmsg("成功");
         return responseVo;
     }
 
-    @Override
-    public Admin2 returnByName(String username) {
-
-        return null;
-    }
 }

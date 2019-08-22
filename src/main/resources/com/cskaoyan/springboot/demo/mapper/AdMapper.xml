@@ -74,7 +74,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, link, url, position, content, start_time, end_time, enabled, add_time, 
+    id, name, link, url, position, content, start_time, end_time, enabled, add_time,
     update_time, deleted
   </sql>
   <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.AdExample" resultMap="BaseResultMap">
@@ -92,7 +92,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_ad
     where id = #{id,jdbcType=INTEGER}
@@ -108,14 +108,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.Ad">
-    insert into cskaoyan_mall_ad (id, name, link, 
-      url, position, content, 
-      start_time, end_time, enabled, 
+    insert into cskaoyan_mall_ad (id, name, link,
+      url, position, content,
+      start_time, end_time, enabled,
       add_time, update_time, deleted
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{link,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{position,jdbcType=TINYINT}, #{content,jdbcType=VARCHAR}, 
-      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{link,jdbcType=VARCHAR},
+      #{url,jdbcType=VARCHAR}, #{position,jdbcType=TINYINT}, #{content,jdbcType=VARCHAR},
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT},
       #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}
       )
   </insert>
@@ -251,17 +251,17 @@
   <update id="updateByExample" parameterType="map">
     update cskaoyan_mall_ad
     set id = #{record.id,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR},
-      link = #{record.link,jdbcType=VARCHAR},
-      url = #{record.url,jdbcType=VARCHAR},
-      position = #{record.position,jdbcType=TINYINT},
-      content = #{record.content,jdbcType=VARCHAR},
-      start_time = #{record.startTime,jdbcType=TIMESTAMP},
-      end_time = #{record.endTime,jdbcType=TIMESTAMP},
-      enabled = #{record.enabled,jdbcType=BIT},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT}
+    name = #{record.name,jdbcType=VARCHAR},
+    link = #{record.link,jdbcType=VARCHAR},
+    url = #{record.url,jdbcType=VARCHAR},
+    position = #{record.position,jdbcType=TINYINT},
+    content = #{record.content,jdbcType=VARCHAR},
+    start_time = #{record.startTime,jdbcType=TIMESTAMP},
+    end_time = #{record.endTime,jdbcType=TIMESTAMP},
+    enabled = #{record.enabled,jdbcType=BIT},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

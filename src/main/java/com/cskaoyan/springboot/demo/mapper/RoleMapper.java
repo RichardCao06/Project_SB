@@ -33,4 +33,10 @@ public interface RoleMapper {
 
     /*查询管理员信息*/
     List<SystemRole> queryRoleIdAndName();
+
+    List<Role> getAllList();
+
+    List<Role> searchByName(@Param("name")String name);
+
+    String[] queryRoleByIds(String[] ids);
 }

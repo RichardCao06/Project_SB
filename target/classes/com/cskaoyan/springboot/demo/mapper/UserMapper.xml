@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cskaoyan.springboot.demo.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.been.User">
+  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.bean.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -19,6 +19,11 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+  <select id="queryIdByUsername" resultType="int">
+    select id
+    from cskaoyan_mall_user
+    where username = #{username}
+  </select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -81,7 +86,7 @@
     id, username, password, gender, birthday, last_login_time, last_login_ip, user_level, 
     nickname, mobile, avatar, weixin_openid, status, add_time, update_time, deleted
   </sql>
-  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.been.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -105,13 +110,13 @@
     delete from cskaoyan_mall_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.been.UserExample">
+  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.bean.UserExample">
     delete from cskaoyan_mall_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.been.User">
+  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.User">
     insert into cskaoyan_mall_user (id, username, password, 
       gender, birthday, last_login_time, 
       last_login_ip, user_level, nickname, 
@@ -125,7 +130,7 @@
       #{status,jdbcType=TINYINT}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.been.User">
+  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.User">
     insert into cskaoyan_mall_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -228,7 +233,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.been.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.bean.UserExample" resultType="java.lang.Long">
     select count(*) from cskaoyan_mall_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -312,7 +317,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.been.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.bean.User">
     update cskaoyan_mall_user
     <set>
       <if test="username != null">
@@ -363,7 +368,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.been.User">
+  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.bean.User">
     update cskaoyan_mall_user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

@@ -73,9 +73,35 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, coupon_id, status, used_time, start_time, end_time, order_id, add_time, 
+    id, user_id, coupon_id, status, used_time, start_time, end_time, order_id, add_time,
     update_time, deleted
   </sql>
+
+
+
+  <!--getListUser-->
+  <select id="getListUser" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_coupon_user
+    where coupon_id = #{couponId}  and  user_id like "%" #{userId} "%" and  status like  "%" #{status} "%"
+    order by #{sort}  #{order}
+  </select>
+  <!--queryByCouponId-->
+  <select id="queryByCouponId" resultMap="BaseResultMap">
+    select  * from  cskaoyan_mall_coupon_user where  coupon_id = #{couponId}
+  </select>
+  <!--queryByCouponIdList-->
+  <select id="queryByCouponIdList" resultMap="BaseResultMap" >
+  select  * from  cskaoyan_mall_coupon_user where  coupon_id = #{couponId}
+</select>
+  <!--selectList-->
+  <select id="selectList" resultMap="BaseResultMap">
+  select  * from  cskaoyan_mall_coupon_user where  status = 0 and user_id = #{userId}
+</select>
+
+
+
+
   <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.CouponUserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -91,7 +117,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_coupon_user
     where id = #{id,jdbcType=INTEGER}
@@ -107,13 +133,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.CouponUser">
-    insert into cskaoyan_mall_coupon_user (id, user_id, coupon_id, 
-      status, used_time, start_time, 
-      end_time, order_id, add_time, 
+    insert into cskaoyan_mall_coupon_user (id, user_id, coupon_id,
+      status, used_time, start_time,
+      end_time, order_id, add_time,
       update_time, deleted)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{couponId,jdbcType=INTEGER}, 
-      #{status,jdbcType=SMALLINT}, #{usedTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, 
-      #{endTime,jdbcType=TIMESTAMP}, #{orderId,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{couponId,jdbcType=INTEGER},
+      #{status,jdbcType=SMALLINT}, #{usedTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP},
+      #{endTime,jdbcType=TIMESTAMP}, #{orderId,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.CouponUser">
@@ -239,16 +265,16 @@
   <update id="updateByExample" parameterType="map">
     update cskaoyan_mall_coupon_user
     set id = #{record.id,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      coupon_id = #{record.couponId,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=SMALLINT},
-      used_time = #{record.usedTime,jdbcType=TIMESTAMP},
-      start_time = #{record.startTime,jdbcType=TIMESTAMP},
-      end_time = #{record.endTime,jdbcType=TIMESTAMP},
-      order_id = #{record.orderId,jdbcType=INTEGER},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT}
+    user_id = #{record.userId,jdbcType=INTEGER},
+    coupon_id = #{record.couponId,jdbcType=INTEGER},
+    status = #{record.status,jdbcType=SMALLINT},
+    used_time = #{record.usedTime,jdbcType=TIMESTAMP},
+    start_time = #{record.startTime,jdbcType=TIMESTAMP},
+    end_time = #{record.endTime,jdbcType=TIMESTAMP},
+    order_id = #{record.orderId,jdbcType=INTEGER},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -303,4 +329,8 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
+
 </mapper>

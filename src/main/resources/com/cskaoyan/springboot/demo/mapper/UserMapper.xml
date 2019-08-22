@@ -19,6 +19,11 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+  <select id="queryIdByUsername" resultType="int">
+    select id
+    from cskaoyan_mall_user
+    where username = #{username}
+  </select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

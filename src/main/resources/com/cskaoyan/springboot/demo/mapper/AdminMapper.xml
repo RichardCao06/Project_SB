@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cskaoyan.springboot.demo.mapper.AdminMapper">
+
   <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.bean.Admin">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
@@ -11,14 +12,14 @@
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
-    <result column="role_ids" jdbcType="VARCHAR" property="roleIds"/>
+    <result column="role_ids" jdbcType="VARCHAR" property="roleIds" typeHandler="com.cskaoyan.springboot.demo.util.String2ArrayHandler"/>
   </resultMap>
-    <resultMap id="adminResultMap" type="com.cskaoyan.springboot.demo.bean.systembean.AdminCustom">
-        <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="username" jdbcType="VARCHAR" property="username" />
-        <result column="avatar" jdbcType="VARCHAR" property="avatar" />
-        <result column="role_ids" jdbcType="VARCHAR" property="roleIds" typeHandler="com.cskaoyan.springboot.demo.util.String2ArrayHandler"/>
-    </resultMap>
+  <resultMap id="adminResultMap" type="com.cskaoyan.springboot.demo.bean.systembean.AdminCustom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="role_ids" jdbcType="VARCHAR" property="roleIds" typeHandler="com.cskaoyan.springboot.demo.util.String2ArrayHandler"/>
+  </resultMap>
   <resultMap id="BaseResultMap2" type="com.cskaoyan.springboot.demo.bean.systembean.Admin2">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
@@ -31,6 +32,14 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
     <result column="role_ids" jdbcType="VARCHAR" property="roleIds" typeHandler="com.cskaoyan.springboot.demo.util.String2ArrayHandler"/>
   </resultMap>
+
+  <resultMap id="addResultMap" type="com.cskaoyan.springboot.demo.bean.UserLoginBean">
+
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="role_ids" jdbcType="VARCHAR" property="roleIds" typeHandler="com.cskaoyan.springboot.demo.util.String2ArrayHandler"/>
+  </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -90,7 +99,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, password, last_login_ip, last_login_time, avatar, add_time, update_time, 
+    id, username, password, last_login_ip, last_login_time, avatar, add_time, update_time,
     deleted, role_ids
   </sql>
   <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.AdminExample" resultMap="BaseResultMap">
@@ -108,7 +117,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_admin
     where id = #{id,jdbcType=INTEGER}
@@ -124,14 +133,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.Admin">
-    insert into cskaoyan_mall_admin (id, username, password, 
-      last_login_ip, last_login_time, avatar, 
-      add_time, update_time, deleted, 
+    insert into cskaoyan_mall_admin (id, username, password,
+      last_login_ip, last_login_time, avatar,
+      add_time, update_time, deleted,
       role_ids)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{avatar,jdbcType=VARCHAR}, 
-      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
-      #{roleIds,jdbcType=VARCHAR})
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{avatar,jdbcType=VARCHAR},
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT},
+      #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.springboot.demo.util.String2ArrayHandler})
   </insert>
   <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.Admin">
     insert into cskaoyan_mall_admin
@@ -196,7 +205,7 @@
         #{deleted,jdbcType=BIT},
       </if>
       <if test="roleIds != null">
-        #{roleIds,jdbcType=VARCHAR},
+        #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.springboot.demo.util.String2ArrayHandler},
       </if>
     </trim>
   </insert>
@@ -237,7 +246,7 @@
         deleted = #{record.deleted,jdbcType=BIT},
       </if>
       <if test="record.roleIds != null">
-        role_ids = #{record.roleIds,jdbcType=VARCHAR},
+        role_ids = #{record.roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.springboot.demo.util.String2ArrayHandler},
       </if>
     </set>
     <if test="_parameter != null">
@@ -247,15 +256,15 @@
   <update id="updateByExample" parameterType="map">
     update cskaoyan_mall_admin
     set id = #{record.id,jdbcType=INTEGER},
-      username = #{record.username,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
-      last_login_ip = #{record.lastLoginIp,jdbcType=VARCHAR},
-      last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
-      avatar = #{record.avatar,jdbcType=VARCHAR},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT},
-      role_ids = #{record.roleIds,jdbcType=VARCHAR}
+    username = #{record.username,jdbcType=VARCHAR},
+    password = #{record.password,jdbcType=VARCHAR},
+    last_login_ip = #{record.lastLoginIp,jdbcType=VARCHAR},
+    last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+    avatar = #{record.avatar,jdbcType=VARCHAR},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT},
+    role_ids = #{record.roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.springboot.demo.util.String2ArrayHandler}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -288,7 +297,7 @@
         deleted = #{deleted,jdbcType=BIT},
       </if>
       <if test="roleIds != null">
-        role_ids = #{roleIds,jdbcType=VARCHAR},
+        role_ids = #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.springboot.demo.util.String2ArrayHandler},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -332,8 +341,41 @@
 
   <select id="returnByName" resultMap="BaseResultMap2">
      select
-    id, username, password, add_time, update_time,
+    id, username, password, add_time, update_time,avatar,
     role_ids
     from  cskaoyan_mall_admin where username = #{username}
   </select>
+
+  <select id="queryAdminByUsername" resultMap="addResultMap">
+        select username,avatar, role_ids
+        from cskaoyan_mall_admin a
+        where a.username = #{principal}
+    </select>
+
+  <select id="queryPermByIds" resultType="java.lang.String">
+    select permission
+    from cskaoyan_mall_permission
+    where role_id in
+    <foreach collection="array" item="id" separator="," open="(" close=")">
+      #{id}
+    </foreach>
+
+  </select>
+  <resultMap id="roleIdsMapper" type="com.cskaoyan.springboot.demo.bean.Role">
+
+    <result column="name" jdbcType="VARCHAR" property="name" />
+
+  </resultMap>
+
+
+  <select id="queryRoleByIds" resultMap="roleIdsMapper">
+    select name
+    from cskaoyan_mall_role
+    where id
+    in
+    <foreach collection="array" item="id" separator="," open="(" close=")">
+      #{id}
+    </foreach>
+  </select>
+
 </mapper>

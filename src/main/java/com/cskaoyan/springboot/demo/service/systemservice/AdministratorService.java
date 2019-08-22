@@ -21,7 +21,6 @@ public interface AdministratorService {
 
     ResponseVo updateAdmin(Admin2 admin);
 
-    ResponseVo searchByName(String username);
+    ResponseVo searchByName(int page, int limit, String username);
 
-    Admin2 returnByName(String username);
 }

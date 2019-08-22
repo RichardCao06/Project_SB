@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("collect")
+@RequestMapping("admin/collect")
 public class CollectController {
     @Autowired
     CollectService collectService;

@@ -26,7 +26,7 @@ public class StorageController {
         mallService.addStorage(storageFile);
         System.out.println(storageFile);
         //文件存储路径
-        String path = "D:\\git\\Project_mall\\src\\main\\resources\\static\\wx\\storage\\fetch";
+        String path = "D:\\tupian";
         File receiveFile = new File(path,storageFile.getKey());
         file.transferTo(receiveFile);
         MessageWithData messageWithData = new MessageWithData();

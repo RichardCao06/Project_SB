@@ -1,29 +1,434 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9542078c-d837-448b-b4d9-0c1efcd7e0ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/Admin2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/AdminCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/ResponseVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/SystemRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/SystemRole2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/config/PageHelperConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/AdministratorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/Page.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/String2ArrayHandler.java" afterDir="false" />
+    <list default="true" id="9542078c-d837-448b-b4d9-0c1efcd7e0ae" name="Default Changelist" comment="1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/aes/AESUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/BaseRespVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/OssParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Picture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserLoginBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserLoginInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/popularize/Errmsg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/popularize/GoodsAndGrouponAndGrouponRules.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/popularize/ResponVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/rolemanage/PerList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/rolemanage/PermissionRoleId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/rolemanage/Permissions1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/rolemanage/Permissions2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/rolemanage/Permissions3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/rolemanage/RoleLast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/Permissions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/FileUploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/AdController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/CouponController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/GrouponController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/GrouponRulesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/TopicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/TypeHandler/GoodValueTypeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/RoleManageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/role/RoleListMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/realm/UserToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/realm/UserTokenManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/rolemanage/PerList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/rolemanage/PermissionRoleId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/rolemanage/Permissions1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/rolemanage/Permissions2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/rolemanage/Permissions3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/rolemanage/RoleLast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/AdminServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/AdService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/CouponService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/CouponUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/GrouponRulesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/GrouponService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/AdServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/CouponServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/CouponUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/GrouponRulesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/GrouponServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/TopicServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/TopicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/ObjectStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/ObjectStorageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleManagementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleManagementServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/systembean/Admin2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/systembean/AdminCustom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/systembean/Permissions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/systembean/SystemRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/systembean/SystemRole2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/Base64Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/CharUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/FileUpload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/JacksonUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/Md5Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/MyException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/ServiceLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/role/RoleListMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/shiro-cache.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/OssApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_4_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_9_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_9_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_9_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_9_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_9_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_9_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_16.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_9_16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_9_16.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_22.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_22.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_22.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_11_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_11_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_17_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_17_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_23_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_23_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_26.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_1_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_1_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_23.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/ShiroConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/AdminVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/AdminVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/Admin2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/Admin2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/config/Aspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/config/Aspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/config/PageHelperConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/StatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/StatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/group/GroupRulesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/mall/IssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/mall/IssueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/mall/KeywordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/mall/KeywordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/mall/StorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/mall/StorageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/AdministratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/LogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/testController/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/testController/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/AddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/CollectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/CollectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/FeedbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/FootprintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/FootprintController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/SearchHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/SearchHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/user/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/CouponMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/CouponMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GoodsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GoodsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GrouponMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GrouponMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/LogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/LogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/PermissionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/StorageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/StorageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/TopicMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/TopicMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/realm/AdminRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/realm/AdminRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/realm/CustomAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/realm/CustomAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/realm/MallToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/realm/MallToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/groupService/GroupService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/groupService/impl/GroupServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/LogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/LogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/LogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/String2ArrayHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/String2ArrayHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdminMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/CouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/CouponMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GoodsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GrouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GrouponMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/PermissionMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/SystemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/SystemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/DemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/DemoApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/Mytest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/TopicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/TopicMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/demo.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Ad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AdExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AdExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AdExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AdExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Address.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AddressExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AddressExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AddressExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AddressExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AdminExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AdminExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AdminExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/AdminExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Brand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/BrandExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/BrandExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/BrandExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/BrandExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Cart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CartExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CartExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CartExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CartExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CategoryExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CategoryExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CategoryExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CategoryExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Comment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CommentExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CommentExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CommentExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CommentExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Coupon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponUserExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponUserExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponUserExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/CouponUserExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Data.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Feedback.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/FeedbackExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/FeedbackExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/FeedbackExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/FeedbackExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Footprint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/FootprintExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/FootprintExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/FootprintExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/FootprintExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Goods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsAttribute.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsAttributeExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsAttributeExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsAttributeExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsAttributeExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsProductExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsProductExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsProductExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsProductExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsSpecification.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsSpecificationExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsSpecificationExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsSpecificationExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GoodsSpecificationExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Groupon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponRules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponRulesExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponRulesExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponRulesExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/GrouponRulesExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Issue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/IssueExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/IssueExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/IssueExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/IssueExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Keyword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/KeywordExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/KeywordExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/KeywordExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/KeywordExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Log.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/LogExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/LogExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/LogExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/LogExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderGoods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderGoodsExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderGoodsExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderGoodsExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/OrderGoodsExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Permission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/PermissionExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/PermissionExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/PermissionExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/PermissionExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Region.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/RegionExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/RegionExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/RegionExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/RegionExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/RoleExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/RoleExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/RoleExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/RoleExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SearchHistory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SearchHistoryExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SearchHistoryExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SearchHistoryExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SearchHistoryExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Storage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/StorageExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/StorageExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/StorageExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/StorageExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/System.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SystemExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SystemExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SystemExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/SystemExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/Topic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/TopicExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/TopicExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/TopicExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/TopicExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserFormid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserFormidExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserFormidExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserFormidExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/UserFormidExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/systembean/Admin2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/systembean/AdminCustom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/systembean/ResponseVo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/systembean/SystemRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/been/systembean/SystemRole2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/controller/systemcontroller/AdministratorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/controller/systemcontroller/AdministratorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AddressMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AddressMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AddressMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdminMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdminMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/BrandMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/BrandMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/BrandMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/BrandMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CartMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CartMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CategoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CommentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CommentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CouponMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CouponMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CouponMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/FeedbackMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/FeedbackMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/FeedbackMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/FeedbackMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/FootprintMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/FootprintMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/FootprintMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/FootprintMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsAttributeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsAttributeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsAttributeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsAttributeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsProductMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsSpecificationMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsSpecificationMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsSpecificationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GoodsSpecificationMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GrouponMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GrouponMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GrouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GrouponMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/IssueMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/IssueMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/IssueMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/IssueMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/KeywordMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/KeywordMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/KeywordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/KeywordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/LogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/LogMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/LogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/LogMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/OrderGoodsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/OrderGoodsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/OrderGoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/OrderGoodsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/OrderMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/OrderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/PermissionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/PermissionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/PermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/RegionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/RegionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/RegionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/RegionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/RoleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/RoleMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/RoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/SearchHistoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/SearchHistoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/SearchHistoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/SearchHistoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/StorageMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/StorageMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/StorageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/StorageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/SystemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/SystemMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/SystemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/SystemMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/TopicMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/TopicMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/TopicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/TopicMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/UserFormidMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/UserFormidMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/UserFormidMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/UserFormidMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/service/systemservice/AdministratorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/service/systemservice/AdministratorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/service/systemservice/AdministratorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/service/systemservice/AdministratorServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/util/String2ArrayHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/util/String2ArrayHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,84 +444,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/AdministratorController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdminMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generatorConfig.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1292">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/CartMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-114">
-              <caret line="3" column="71" selection-start-line="3" selection-start-column="71" selection-end-line="3" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+            <state relative-caret-position="10017">
+              <caret line="371" column="15" selection-start-line="371" selection-start-column="15" selection-end-line="371" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdminMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/AdminServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="295" selection-start-line="295" selection-end-line="295" />
+            <state relative-caret-position="450">
+              <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
               <folding>
-                <element signature="n#insert#2;n#mapper#0;n#!!top" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserLoginBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+              <folding>
+                <element signature="e#509#510#0" expanded="true" />
+                <element signature="e#539#540#0" expanded="true" />
+                <element signature="e#584#585#0" expanded="true" />
+                <element signature="e#622#623#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,10 +484,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>roleIds</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -138,36 +500,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/Mytest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/DemoApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/systemmapper/SystemMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/SystemMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/TestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleListService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleListServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/ResponseVo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/SystemRole.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/SystemRole2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/RoleMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/LogService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/config/Aspect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/LogServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/LogMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/LogController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/StorageMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/role/RoleListMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/role/RoleListMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleManagementService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/RoleManageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/rolemanage/PerList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleManagementServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/AdServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/CouponUserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/TopicMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/TopicMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/AdController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/GrouponController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GoodsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GoodsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GrouponRulesMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/groupService/impl/GroupServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/group/GroupRulesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/GrouponMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/CouponService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/CouponServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/CouponController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/CouponMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/CouponMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GrouponMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Info.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/testController/TestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/AdminService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/PermissionMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/RoleMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/RoleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/Page.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/Demo7Application.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/AdminCustom.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdminLoginMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminLoginMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Admin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/String2ArrayHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/Admin2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Admin.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/AdministratorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/config/PageHelperConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserLoginBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/PermissionMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/RoleMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdminMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminMapper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/OssApplicationTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserLoginInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/AdminServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -175,7 +558,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\maven\repository" />
-        <option name="mavenHome" value="D:/maven/apache-maven-3.6.1" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../maven/apache-maven-3.6.1-bin/apache-maven-3.6.1" />
         <option name="userSettingsFile" value="D:\maven\apache-maven-3.6.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -186,11 +569,6 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="demo" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="demo" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -276,20 +654,20 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="42" />
     <option name="y" value="48" />
     <option name="width" value="1727" />
     <option name="height" value="1103" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,6 +678,17 @@
             <path>
               <item name="demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -363,7 +752,7 @@
               <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
               <item name="springboot" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="demo" type="b2602c69:ProjectViewProjectNode" />
@@ -371,74 +760,88 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="systemservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
               <item name="springboot" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_SB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -448,18 +851,28 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566463283059" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cskaoyan.springboot.demo.mapper" />
+      <recent name="com.cskaoyan.springboot.demo.bean" />
       <recent name="com.cskaoyan.springboot.demo.util" />
       <recent name="com.cskaoyan.springboot.demo.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\git\Project_SB\src\main\java\com\cskaoyan\springboot\demo\util" />
+      <recent name="D:\Project_SB\src\main\java\com\cskaoyan\springboot\demo\controller" />
+      <recent name="D:\Project_SB\src\main\java\com\cskaoyan\springboot\demo\service" />
+      <recent name="D:\Project_SB\src\main\java\com\cskaoyan\springboot\demo\bean" />
+      <recent name="D:\Project_SB\src\main\resources\com\cskaoyan\springboot\demo\mapper" />
+      <recent name="D:\Project_SB\src\main\java\com\cskaoyan\springboot\demo\util" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -474,7 +887,81 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.DemoApplication">
+    <configuration name="AESUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cskaoyan.springboot.demo.aes.AESUtil" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cskaoyan.springboot.demo.aes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RsaTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cskaoyan.springboot.demo.RsaTest" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cskaoyan.springboot.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AESTest.mytest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cskaoyan.springboot.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cskaoyan.springboot.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.cskaoyan.springboot.demo.AESTest" />
+      <option name="METHOD_NAME" value="mytest1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OssApplicationTests.mytest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cskaoyan.springboot.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cskaoyan.springboot.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.cskaoyan.springboot.demo.OssApplicationTests" />
+      <option name="METHOD_NAME" value="mytest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OssApplicationTests.mytest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cskaoyan.springboot.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cskaoyan.springboot.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.cskaoyan.springboot.demo.OssApplicationTests" />
+      <option name="METHOD_NAME" value="mytest1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.cskaoyan.springboot.demo.DemoApplication" />
@@ -482,6 +969,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OssApplicationTests.mytest1" />
+        <item itemvalue="JUnit.OssApplicationTests.mytest" />
+        <item itemvalue="Application.RsaTest" />
+        <item itemvalue="Application.AESUtil" />
+        <item itemvalue="JUnit.AESTest.mytest1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -495,17 +991,88 @@
       <updated>1565923265615</updated>
       <workItem from="1565923269007" duration="43005000" />
       <workItem from="1566002218259" duration="4143000" />
+      <workItem from="1566293167842" duration="485000" />
+      <workItem from="1566293746154" duration="1296000" />
+      <workItem from="1566302219569" duration="1334000" />
+      <workItem from="1566307062249" duration="273000" />
+      <workItem from="1566307733527" duration="1275000" />
+      <workItem from="1566351134700" duration="33531000" />
+      <workItem from="1566437155227" duration="242000" />
+      <workItem from="1566438069906" duration="18172000" />
+      <workItem from="1566464942053" duration="875000" />
     </task>
+    <task id="LOCAL-00001" summary="login">
+      <created>1566293615588</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1566293615588</updated>
+    </task>
+    <task id="LOCAL-00002" summary="config">
+      <created>1566293807005</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566293807005</updated>
+    </task>
+    <task id="LOCAL-00003" summary="shiro">
+      <created>1566307827158</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1566307827158</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="OssApplicationTests_mytest - 2019.08.22 at 15h 55m 13s.xml">
+      <configuration name="OssApplicationTests.mytest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest - 2019.08.22 at 15h 57m 55s.xml">
+      <configuration name="OssApplicationTests.mytest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest - 2019.08.22 at 16h 02m 22s.xml">
+      <configuration name="OssApplicationTests.mytest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest - 2019.08.22 at 16h 03m 21s.xml">
+      <configuration name="OssApplicationTests.mytest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest1 - 2019.08.22 at 16h 14m 54s.xml">
+      <configuration name="OssApplicationTests.mytest1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest1 - 2019.08.22 at 16h 15m 55s.xml">
+      <configuration name="OssApplicationTests.mytest1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest1 - 2019.08.22 at 16h 18m 49s.xml">
+      <configuration name="OssApplicationTests.mytest1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest1 - 2019.08.22 at 16h 22m 07s.xml">
+      <configuration name="OssApplicationTests.mytest1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest1 - 2019.08.22 at 16h 29m 30s.xml">
+      <configuration name="OssApplicationTests.mytest1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="OssApplicationTests_mytest1 - 2019.08.22 at 16h 30m 32s.xml">
+      <configuration name="OssApplicationTests.mytest1" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47271000" />
+    <option name="totallyTimeSpent" value="104754000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25325522" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31240544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -514,25 +1081,25 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.13324176" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.15796703" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3633388" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" visible="true" weight="0.18003273" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.4532967" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32956153" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" visible="true" weight="0.18003273" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Spring" order="14" />
-      <window_info anchor="bottom" id="Messages" order="15" weight="0.32554945" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.22258593" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964131" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.01953125" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.16263238" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.3292683" />
@@ -544,6 +1111,13 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="login" />
+    <MESSAGE value="config" />
+    <MESSAGE value="shiro" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
@@ -552,349 +1126,243 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/CorsConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/GrouponController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/CouponMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
+        <state relative-caret-position="296">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/CouponService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/AdController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/CouponMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="457" column="9" selection-start-line="457" selection-start-column="9" selection-end-line="457" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/popularize/TypeHandler/GoodValueTypeHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/GrouponMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10391">
+          <caret line="410" column="9" selection-start-line="410" selection-start-column="9" selection-end-line="410" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/GrouponRulesServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.7.RELEASE/spring-boot-autoconfigure-2.1.7.RELEASE.jar!/org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/CouponUserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
+        <state relative-caret-position="-320">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Ad.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/CouponServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1234">
+        <state relative-caret-position="135">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/GrouponServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/TopicServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/popularize/Impl/AdServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-675">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#566#567#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/ShiroConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="57" column="34" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/AdminService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminLoginMapper.java" />
+    <entry file="jar://$PROJECT_DIR$/../maven/repository/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/builder/xml/XMLMapperBuilder.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1362">
+          <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
+          <folding>
+            <element signature="e#1954#1955#0" expanded="true" />
+            <element signature="e#1999#2000#0" expanded="true" />
+            <element signature="e#2037#2038#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/com/cskaoyan/springboot/demo/mapper/AdMapper.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Errno.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        <state relative-caret-position="108">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/SystemRole2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/SystemRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/AdminVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/Permissions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/ResponseVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/Admin2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
-            <element signature="e#0#912#0" expanded="true" />
-            <element signature="imports" expanded="true" />
+            <element signature="e#171#172#0" expanded="true" />
+            <element signature="e#206#207#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#271#272#0" expanded="true" />
+            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/Mytest.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/1.3.2/mybatis-spring-boot-autoconfigure-1.3.2.jar!/org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/SystemMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/systemmapper/SystemMapper.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AddressMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.9.RELEASE/spring-webmvc-5.1.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/systembean/AdminCustom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
-          <caret line="517" column="27" selection-start-line="517" selection-start-column="27" selection-end-line="517" selection-end-column="27" />
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.9.RELEASE/spring-webmvc-5.1.9.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/testController/TestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="391" column="19" selection-start-line="391" selection-start-column="19" selection-end-line="391" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.9.RELEASE/spring-webmvc-5.1.9.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="507" selection-start-line="507" selection-end-line="507" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleListService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/RoleListServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/DemoApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/DemoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-          <folding>
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/binding/MapperProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/Demo7Application.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/TopicMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/BrandMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/executor/resultset/DefaultResultSetHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="368" selection-start-line="368" selection-end-line="368" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/RoleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="247" column="28" selection-start-line="247" selection-start-column="28" selection-end-line="247" selection-end-column="28" />
-          <folding>
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#delete#1;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#2;n#mapper#0;n#!!top" />
-            <element signature="n#update#3;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/ResponseVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#178#179#0" expanded="true" />
-            <element signature="e#205#206#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-            <element signature="e#272#273#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/SystemRole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.9.RELEASE/spring-web-5.1.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/String2ArrayHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
-          <folding>
-            <element signature="e#1956#1957#0" expanded="true" />
-            <element signature="e#2002#2003#0" expanded="true" />
-            <element signature="e#2040#2041#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/AdminCustom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/RoleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/SystemRole2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/SystemMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#delete#1;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#2;n#mapper#0;n#!!top" />
-            <element signature="n#update#3;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/config/PageHelperConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/been/systembean/Admin2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding>
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1833#1834#0" expanded="true" />
-            <element signature="e#1878#1879#0" expanded="true" />
-            <element signature="e#1916#1917#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/controller/systemcontroller/AdministratorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        <state relative-caret-position="432">
+          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -902,45 +1370,121 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        <state relative-caret-position="-324" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdminLoginMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/RoleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generatorConfig.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/PermissionMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
+        <state relative-caret-position="328">
+          <caret line="42" column="42" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/PermissionMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="99">
+          <caret line="165" column="39" lean-forward="true" selection-start-line="165" selection-start-column="39" selection-end-line="165" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/systemservice/AdministratorServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/RoleMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1292">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="3056">
+          <caret line="262" selection-start-line="262" selection-end-line="262" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../maven/repository/org/springframework/spring-web/5.1.9.RELEASE/spring-web-5.1.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="31" column="94" selection-start-line="31" selection-start-column="94" selection-end-line="31" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/springboot/demo/mapper/AdminMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="295" selection-start-line="295" selection-end-line="295" />
+        <state relative-caret-position="10017">
+          <caret line="371" column="15" selection-start-line="371" selection-start-column="15" selection-end-line="371" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserLoginInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
           <folding>
-            <element signature="n#insert#2;n#mapper#0;n#!!top" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/cskaoyan/springboot/demo/OssApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/mapper/AdminMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/util/String2ArrayHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/bean/UserLoginBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding>
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#622#623#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/springboot/demo/service/AdminServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -948,9 +1492,80 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>demo</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>9</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

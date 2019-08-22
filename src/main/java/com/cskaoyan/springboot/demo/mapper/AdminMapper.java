@@ -1,10 +1,9 @@
 package com.cskaoyan.springboot.demo.mapper;
 
-import com.cskaoyan.springboot.demo.bean.Admin;
-import com.cskaoyan.springboot.demo.bean.AdminExample;
+import com.cskaoyan.springboot.demo.bean.*;
+
 import java.util.List;
 
-import com.cskaoyan.springboot.demo.bean.AdminVo;
 import com.cskaoyan.springboot.demo.bean.systembean.Admin2;
 import com.cskaoyan.springboot.demo.bean.systembean.AdminCustom;
 import org.apache.ibatis.annotations.Param;
@@ -46,11 +45,16 @@ public interface AdminMapper {
     @Select("select password from cskaoyan_mall_admin where username = #{username}")
     String queryPasswordByUserName(@Param("username") String username);
 
-     @Select("select p.permission from cskaoyan_mall_admin a LEFT JOIN cskaoyan_mall_permission p on a.role_ids = p.role_id  where a.username = #{username}")
+    //@Select("select p.permission from cskaoyan_mall_admin a LEFT JOIN cskaoyan_mall_permission p on a.role_ids = p.role_id  where a.username = #{username}")
     List<String> queryPermissionsByUserName(@Param("username") String username);
 
-    @Select("select DISTINCT a.avatar, r.name from cskaoyan_mall_admin a LEFT JOIN cskaoyan_mall_permission p on  a.role_ids = p.role_id LEFT JOIN cskaoyan_mall_role r on  a.role_ids = r.id  where username = #{username}")
+    //@Select("select DISTINCT a.avatar, r.name from cskaoyan_mall_admin a LEFT JOIN cskaoyan_mall_permission p on  a.role_ids = p.role_id LEFT JOIN cskaoyan_mall_role r on  a.role_ids = r.id  where username = #{username}")
     AdminVo queryAdmin(@Param("username") String username);
 
 
+    UserLoginBean queryAdminByUsername(String principal);
+
+    Role queryRoleByIds(int[] ids);
+
+    String[] queryPermByIds(int[] ids);
 }

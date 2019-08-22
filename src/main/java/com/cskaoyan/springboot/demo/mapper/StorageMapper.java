@@ -1,8 +1,11 @@
 package com.cskaoyan.springboot.demo.mapper;
 
+
+import java.util.List;
+
+import com.cskaoyan.springboot.demo.bean.Picture;
 import com.cskaoyan.springboot.demo.bean.Storage;
 import com.cskaoyan.springboot.demo.bean.StorageExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StorageMapper {
@@ -27,4 +30,12 @@ public interface StorageMapper {
     int updateByPrimaryKeySelective(Storage record);
 
     int updateByPrimaryKey(Storage record);
+
+    List<Storage> getAllStorage();
+
+    int updateById(@Param("name")String name,@Param("id")int id);
+
+    List<Storage> searchByNameAndKey(@Param("key")String key,@Param("name")String name);
+
+    int insertPic(@Param("pic") Picture picture);
 }

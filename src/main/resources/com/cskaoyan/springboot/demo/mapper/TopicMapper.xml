@@ -76,12 +76,24 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, title, subtitle, price, read_count, pic_url, sort_order, goods, add_time, update_time, 
+    id, title, subtitle, price, read_count, pic_url, sort_order, goods, add_time, update_time,
     deleted
   </sql>
   <sql id="Blob_Column_List">
     content
   </sql>
+
+  <sql id="Query_List">
+    add_time ,content ,deleted ,goods , id, pic_url ,   price , read_count ,sort_order ,subtitle ,title, update_time
+  </sql>
+  <select id="getList" resultMap="BaseResultMap">
+    select <include refid="Query_List"/>
+    from cskaoyan_mall_topic
+    where title like "%" #{title} "%" and  subtitle like "%" #{subtitle} "%"
+    order by #{sort}  #{order}
+  </select>
+
+
   <select id="selectByExampleWithBLOBs" parameterType="com.cskaoyan.springboot.demo.bean.TopicExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
@@ -113,7 +125,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
-    select 
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
@@ -131,14 +143,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.Topic">
-    insert into cskaoyan_mall_topic (id, title, subtitle, 
-      price, read_count, pic_url, 
-      sort_order, goods, add_time, 
+    insert into cskaoyan_mall_topic (id, title, subtitle,
+      price, read_count, pic_url,
+      sort_order, goods, add_time,
       update_time, deleted, content
       )
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{subtitle,jdbcType=VARCHAR}, 
-      #{price,jdbcType=DECIMAL}, #{readCount,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR}, 
-      #{sortOrder,jdbcType=INTEGER}, #{goods,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{subtitle,jdbcType=VARCHAR},
+      #{price,jdbcType=DECIMAL}, #{readCount,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR},
+      #{sortOrder,jdbcType=INTEGER}, #{goods,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -274,17 +286,17 @@
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update cskaoyan_mall_topic
     set id = #{record.id,jdbcType=INTEGER},
-      title = #{record.title,jdbcType=VARCHAR},
-      subtitle = #{record.subtitle,jdbcType=VARCHAR},
-      price = #{record.price,jdbcType=DECIMAL},
-      read_count = #{record.readCount,jdbcType=VARCHAR},
-      pic_url = #{record.picUrl,jdbcType=VARCHAR},
-      sort_order = #{record.sortOrder,jdbcType=INTEGER},
-      goods = #{record.goods,jdbcType=VARCHAR},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT},
-      content = #{record.content,jdbcType=LONGVARCHAR}
+    title = #{record.title,jdbcType=VARCHAR},
+    subtitle = #{record.subtitle,jdbcType=VARCHAR},
+    price = #{record.price,jdbcType=DECIMAL},
+    read_count = #{record.readCount,jdbcType=VARCHAR},
+    pic_url = #{record.picUrl,jdbcType=VARCHAR},
+    sort_order = #{record.sortOrder,jdbcType=INTEGER},
+    goods = #{record.goods,jdbcType=VARCHAR},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT},
+    content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -292,16 +304,16 @@
   <update id="updateByExample" parameterType="map">
     update cskaoyan_mall_topic
     set id = #{record.id,jdbcType=INTEGER},
-      title = #{record.title,jdbcType=VARCHAR},
-      subtitle = #{record.subtitle,jdbcType=VARCHAR},
-      price = #{record.price,jdbcType=DECIMAL},
-      read_count = #{record.readCount,jdbcType=VARCHAR},
-      pic_url = #{record.picUrl,jdbcType=VARCHAR},
-      sort_order = #{record.sortOrder,jdbcType=INTEGER},
-      goods = #{record.goods,jdbcType=VARCHAR},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT}
+    title = #{record.title,jdbcType=VARCHAR},
+    subtitle = #{record.subtitle,jdbcType=VARCHAR},
+    price = #{record.price,jdbcType=DECIMAL},
+    read_count = #{record.readCount,jdbcType=VARCHAR},
+    pic_url = #{record.picUrl,jdbcType=VARCHAR},
+    sort_order = #{record.sortOrder,jdbcType=INTEGER},
+    goods = #{record.goods,jdbcType=VARCHAR},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
+@RequestMapping("admin/keyword")
 public class KeywordController {
 
     @Autowired
     KeywordService keywordService;
 
-    @RequestMapping("keyword/list")
+    @RequestMapping("list")
     @ResponseBody
     public KeywordVo findKeyword(String keyword, String url, int page, int limit){
 
@@ -37,7 +38,7 @@ public class KeywordController {
         return keywordVo;
     }
 
-    @RequestMapping("keyword/update")
+    @RequestMapping("update")
     @ResponseBody
     public KeywordBean update(@RequestBody Keyword keyword){
 
@@ -50,7 +51,7 @@ public class KeywordController {
         return keywordBean;
     }
 
-    @RequestMapping("keyword/create")
+    @RequestMapping("create")
     @ResponseBody
     public KeywordBean create(@RequestBody Keyword keyword){
 
@@ -64,7 +65,7 @@ public class KeywordController {
 
     }
 
-    @RequestMapping("keyword/delete")
+    @RequestMapping("delete")
     @ResponseBody
     public KeywordVo delete(@RequestBody Keyword keyword){
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.springboot.demo.mapper.role.RoleListMapper">
+
+<resultMap id="firstLevel" type="com.cskaoyan.springboot.demo.bean.rolemanage.Permissions2">
+    <result property="id" column="id"/>
+    <result property="label" column="label"/>
+    <result property="pid" column="pid"/>
+    <collection property="children" column="id" select="com.cskaoyan.springboot.demo.mapper.role.RoleListMapper.findLabelList"/>
+</resultMap>
+
+    <resultMap id="secondLevel" type="com.cskaoyan.springboot.demo.bean.rolemanage.Permissions3">
+        <result property="id" column="id"/>
+        <result property="label" column="label"/>
+        <result property="pid" column="pid"/>
+        <collection property="children" column="id" select="com.cskaoyan.springboot.demo.mapper.role.RoleListMapper.findLastLabel"/>
+    </resultMap>
+
+<select id="findTopList" resultMap="firstLevel">
+    select id,label,pid
+    from cskaoyan_mall_list
+    where pid = #{pid}
+</select>
+
+<select id="findLabelList" resultMap="secondLevel">
+    select id,label,pid
+        from cskaoyan_mall_list
+        where pid = #{pid}
+</select>
+
+    <resultMap id="LastLabel" type="com.cskaoyan.springboot.demo.bean.rolemanage.RoleLast">
+        <result property="api" column="api"/>
+        <result property="id" column="id"/>
+        <result property="label" column="label"/>
+        <result property="pid" column="pid"/>
+    </resultMap>
+
+
+    <select id="findLastLabel" resultMap="LastLabel">
+        select api,id,label,pid
+        from cskaoyan_mall_list
+        where pid = #{pid}
+    </select>
+
+</mapper>

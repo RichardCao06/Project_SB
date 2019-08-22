@@ -38,8 +38,6 @@ public class String2ArrayHandler implements TypeHandler<int[]> {
     public int[] getResult(ResultSet resultSet, String s) throws SQLException {
         String content = resultSet.getString(s);
         //[1,2,3,4]
-
-
         return transfer(content);
     }
 

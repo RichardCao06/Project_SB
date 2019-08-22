@@ -3,6 +3,7 @@ package com.cskaoyan.springboot.demo;
 import com.cskaoyan.springboot.demo.realm.AdminRealm;
 import com.cskaoyan.springboot.demo.realm.CustomAuthenticator;
 import com.cskaoyan.springboot.demo.realm.WxRealm;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.realm.Realm;
@@ -58,6 +59,8 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
         shiroFilterFactoryBean.setLoginUrl("/index");
+        //shiroFilterFactoryBean.setLoginUrl("/vx/index");
+
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         HashMap<String, String> filterChainDefinitionMap = new HashMap<>();
 
@@ -102,4 +105,16 @@ public class ShiroConfig {
         sessionManager.setDeleteInvalidSessions(true);
         return sessionManager;
     }
+
+    @Bean
+    public HashedCredentialsMatcher hashedCredentialsMatcher(){
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        // 使用md5 算法进行加密
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");
+        // 设置散列次数： 意为加密几次
+        hashedCredentialsMatcher.setHashIterations(1);
+        return hashedCredentialsMatcher;
+    }
+
+
 }

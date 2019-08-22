@@ -1,12 +1,10 @@
 package com.cskaoyan.springboot.demo.controller.systemcontroller;
 
-import com.cskaoyan.springboot.demo.bean.systembean.Admin2;
-import com.cskaoyan.springboot.demo.bean.systembean.AdminCustom;
-import com.cskaoyan.springboot.demo.bean.systembean.ResponseVo;
-import com.cskaoyan.springboot.demo.bean.systembean.SystemRole;
+import com.cskaoyan.springboot.demo.bean.systembean.*;
 import com.cskaoyan.springboot.demo.service.systemservice.AdministratorService;
 import com.cskaoyan.springboot.demo.util.ControllerLog;
-import com.cskaoyan.springboot.demo.util.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequestMapping("admin")
 public class AdministratorController {
 
     @Autowired
@@ -32,18 +31,21 @@ public class AdministratorController {
     }
 
     @RequestMapping("admin/list")
-    public ResponseVo<Page> queryList(int page,int limit,String sort,String order,String username) {
+    public ResponseVo queryList(int page,int limit,String sort,String order,String username) {
         if (username != null) {
-            return administratorService.searchByName(username);
+            return administratorService.searchByName(page,limit,username);
         } else {
-            Page<AdminCustom> page1 = new Page<>();
+            PageHelper.startPage(page,limit);
+            //Page<AdminCustom> page1 = new Page<>();
             List<AdminCustom> adminCustoms = administratorService.queryRoleList(sort, order);
-            page1.setItems(adminCustoms);
-            page1.setTotal(adminCustoms.size());
-            ResponseVo<Page> responseVo = new ResponseVo<>();
+            PageInfo<AdminCustom> pageInfo = new PageInfo<>(adminCustoms);
+            SystemRole2<List<AdminCustom>> role2 = new SystemRole2<>();
+            role2.setItems(adminCustoms);
+            role2.setTotal((int) pageInfo.getTotal());
+            ResponseVo<SystemRole2> responseVo = new ResponseVo<>();
             responseVo.setErrno(0);
             responseVo.setErrmsg("成功");
-            responseVo.setData(page1);
+            responseVo.setData(role2);
             return responseVo;
         }
     }

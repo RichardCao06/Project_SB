@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("history")
+@RequestMapping("admin/history")
 public class SearchHistoryController {
     @Autowired
     SearchHistoryService searchHistoryService;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cskaoyan.springboot.demo.mapper.GoodsMapper">
-  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.been.Goods">
+  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.bean.Goods">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="goods_sn" jdbcType="VARCHAR" property="goodsSn" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -23,7 +23,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cskaoyan.springboot.demo.been.Goods">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cskaoyan.springboot.demo.bean.Goods">
     <result column="detail" jdbcType="LONGVARCHAR" property="detail" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -92,7 +92,7 @@
   <sql id="Blob_Column_List">
     detail
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.cskaoyan.springboot.demo.been.GoodsExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.cskaoyan.springboot.demo.bean.GoodsExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -108,7 +108,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.been.GoodsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.GoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -134,13 +134,13 @@
     delete from cskaoyan_mall_goods
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.been.GoodsExample">
+  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.bean.GoodsExample">
     delete from cskaoyan_mall_goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.been.Goods">
+  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.Goods">
     insert into cskaoyan_mall_goods (id, goods_sn, name, 
       category_id, brand_id, gallery, 
       keywords, brief, is_on_sale, 
@@ -156,7 +156,7 @@
       #{retailPrice,jdbcType=DECIMAL}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT}, #{detail,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.been.Goods">
+  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.Goods">
     insert into cskaoyan_mall_goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -289,7 +289,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.been.GoodsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.bean.GoodsExample" resultType="java.lang.Long">
     select count(*) from cskaoyan_mall_goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -419,7 +419,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.been.Goods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.bean.Goods">
     update cskaoyan_mall_goods
     <set>
       <if test="goodsSn != null">
@@ -485,7 +485,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cskaoyan.springboot.demo.been.Goods">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cskaoyan.springboot.demo.bean.Goods">
     update cskaoyan_mall_goods
     set goods_sn = #{goodsSn,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
@@ -509,7 +509,7 @@
       detail = #{detail,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.been.Goods">
+  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.bean.Goods">
     update cskaoyan_mall_goods
     set goods_sn = #{goodsSn,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
@@ -532,4 +532,11 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getListRecord"  resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List"/>
+    from cskaoyan_mall_goods
+    where  id like "%" #{goodsId} "%"
+    order by #{sort}  #{order}
+  </select>
 </mapper>

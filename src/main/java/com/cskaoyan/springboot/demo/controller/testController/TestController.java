@@ -1,8 +1,10 @@
 package com.cskaoyan.springboot.demo.controller.testController;
 
 import com.cskaoyan.springboot.demo.bean.*;
+import com.cskaoyan.springboot.demo.bean.systembean.AdminCustom;
 import com.cskaoyan.springboot.demo.mapper.AdminMapper;
 import com.cskaoyan.springboot.demo.realm.MallToken;
+import com.cskaoyan.springboot.demo.service.AdminService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
+import java.lang.System;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +25,8 @@ public class TestController {
 
     @Resource
     AdminMapper adminMapper;
+    @Autowired
+    AdminService adminService;
 
     @RequestMapping("login")
     @ResponseBody
@@ -42,26 +47,40 @@ public class TestController {
 
     @RequestMapping("info")
     @ResponseBody
-    public Info info(){
+    public UserMessage info(){
         String principal = (String) SecurityUtils.getSubject().getPrincipal();//获取用户名
-        Info info = new Info();
-        info.setErrno(0);
-        info.setErrmsg("成功");
-        Data data = new Data();
-        data.setName(principal);
-        AdminVo adminVo = new AdminVo();
-
-        adminVo = adminMapper.queryAdmin(principal);
-        data.setAvatar(adminVo.getAvatar());
-        List<String> perms = adminMapper.queryPermissionsByUserName(principal);
-        List<String> roles = new ArrayList<>();
-        roles.add(adminVo.getName());
-        data.setPerms(perms);
-        data.setRoles(roles);
-        info.setData(data);
-        return info;
+        UserMessage userMessage = new UserMessage();
+        userMessage.setErrno(0);
+        userMessage.setErrmsg("成功");
+        UserLoginInfo data = adminService.queryAdminByUsername(principal);
+        userMessage.setData(data);
+        return userMessage;
 
     }
+
+//    @RequestMapping("info")
+//    @ResponseBody
+//    public Info info(){
+//        String principal = (String) SecurityUtils.getSubject().getPrincipal();//获取用户名
+//        Info info = new Info();
+//        info.setErrno(0);
+//        info.setErrmsg("成功");
+//        Data data = new Data();
+//        data.setName(principal);
+//        AdminVo adminVo = new AdminVo();
+//        adminVo = adminMapper.queryAdmin(principal);
+//        data.setAvatar("https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
+//        List<String> perms = adminMapper.queryPermissionsByUserName(principal);
+//
+//        List<String> roles = new ArrayList<>();
+//        roles.add("超级管理员");
+//        data.setPerms(perms);
+//        data.setRoles(roles);
+//        info.setData(data);
+//        return info;
+//
+//    }
+
 
     @RequestMapping("logout")
     @ResponseBody

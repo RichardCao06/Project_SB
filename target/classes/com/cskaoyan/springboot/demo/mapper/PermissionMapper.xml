@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cskaoyan.springboot.demo.mapper.PermissionMapper">
-  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.been.Permission">
+  <resultMap id="BaseResultMap" type="com.cskaoyan.springboot.demo.bean.Permission">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="permission" jdbcType="VARCHAR" property="permission" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, role_id, permission, add_time, update_time, deleted
   </sql>
-  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.been.PermissionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.PermissionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -85,7 +85,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_permission
     where id = #{id,jdbcType=INTEGER}
@@ -94,21 +94,21 @@
     delete from cskaoyan_mall_permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.been.PermissionExample">
+  <delete id="deleteByExample" parameterType="com.cskaoyan.springboot.demo.bean.PermissionExample">
     delete from cskaoyan_mall_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.been.Permission">
-    insert into cskaoyan_mall_permission (id, role_id, permission, 
+  <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.Permission">
+    insert into cskaoyan_mall_permission (id, role_id, permission,
       add_time, update_time, deleted
       )
-    values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR},
       #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.been.Permission">
+  <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.Permission">
     insert into cskaoyan_mall_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.been.PermissionExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.cskaoyan.springboot.demo.bean.PermissionExample" resultType="java.lang.Long">
     select count(*) from cskaoyan_mall_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -186,16 +186,16 @@
   <update id="updateByExample" parameterType="map">
     update cskaoyan_mall_permission
     set id = #{record.id,jdbcType=INTEGER},
-      role_id = #{record.roleId,jdbcType=INTEGER},
-      permission = #{record.permission,jdbcType=VARCHAR},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT}
+    role_id = #{record.roleId,jdbcType=INTEGER},
+    permission = #{record.permission,jdbcType=VARCHAR},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.been.Permission">
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.springboot.demo.bean.Permission">
     update cskaoyan_mall_permission
     <set>
       <if test="roleId != null">
@@ -216,7 +216,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.been.Permission">
+  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.springboot.demo.bean.Permission">
     update cskaoyan_mall_permission
     set role_id = #{roleId,jdbcType=INTEGER},
       permission = #{permission,jdbcType=VARCHAR},
@@ -225,4 +225,29 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="searchPermission" resultType="java.lang.String">
+    select permission from cskaoyan_mall_permission
+    where role_id = #{roleId}
+  </select>
+
+  <delete id="deleteOldPermission" >
+    delete from cskaoyan_mall_permission
+    where role_id = #{roleId}
+  </delete>
+
+  <insert id="addPermission" parameterType="com.cskaoyan.springboot.demo.bean.Permission">
+    insert into cskaoyan_mall_permission (role_id, permission,
+      add_time, update_time, deleted
+      )
+    values (#{permission.roleId},#{permission.permission},#{permission.addTime},#{permission.updateTime},#{permission.deleted})
+
+  </insert>
+
+  <select id="superManage" resultType="java.lang.String">
+    select api from cskaoyan_mall_list
+    where api != '' and pid != '0'
+  </select>
+
+
 </mapper>
