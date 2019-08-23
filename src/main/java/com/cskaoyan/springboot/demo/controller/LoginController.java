@@ -8,9 +8,11 @@ import com.cskaoyan.springboot.demo.mapper.UserMapper;
 import com.cskaoyan.springboot.demo.realm.MallToken;
 import com.cskaoyan.springboot.demo.realm.UserToken;
 import com.cskaoyan.springboot.demo.realm.UserTokenManager;
+import com.cskaoyan.springboot.demo.service.wx.user.WxOrderService;
 import com.cskaoyan.springboot.demo.util.JacksonUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -57,6 +59,8 @@ public class LoginController {
 
     }
 
+    @Autowired
+    WxOrderService wxOrderService;
 
     @RequestMapping("user/index")
     @ResponseBody
@@ -76,7 +80,12 @@ public class LoginController {
         Map<Object, Object> data = new HashMap<Object, Object>();
         //***********************************
         //根据userId查询订单信息
-        data.put("order", null);
+        HashMap<String, Integer> order = new HashMap<>();
+        order.put("unpaid", wxOrderService.countByExample(userId, 101));
+        order.put("unship", wxOrderService.countByExample(userId, 201));
+        order.put("unrecv", wxOrderService.countByExample(userId, 301));
+        order.put("uncomment", wxOrderService.countByExample(userId, 401));
+        data.put("order", order);
         //***********************************
 
         return BaseRespVo.ok(data);
