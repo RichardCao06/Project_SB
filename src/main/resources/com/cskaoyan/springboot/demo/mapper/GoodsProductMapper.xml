@@ -272,4 +272,9 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="queryPriceByGid" resultType="java.lang.Double">
+    select price from cskaoyan_mall_goods_product
+    where goods_id = #{gid}
+  </select>
 </mapper>

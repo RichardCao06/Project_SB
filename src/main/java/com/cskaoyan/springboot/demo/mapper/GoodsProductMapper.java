@@ -27,4 +27,6 @@ public interface GoodsProductMapper {
     int updateByPrimaryKeySelective(GoodsProduct record);
 
     int updateByPrimaryKey(GoodsProduct record);
+
+    Double queryPriceByGid(@Param("gid")int id);
 }

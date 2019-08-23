@@ -302,4 +302,10 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="searchLogByName" resultMap="BaseResultMap">
+    select
+     id, admin, ip, `type`, `action`, status, result, comment, add_time, update_time, deleted
+     from cskaoyan_mall_log where admin like #{name}
+  </select>
 </mapper>

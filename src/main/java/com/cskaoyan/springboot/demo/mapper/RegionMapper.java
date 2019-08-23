@@ -27,4 +27,6 @@ public interface RegionMapper {
     int updateByPrimaryKeySelective(Region record);
 
     int updateByPrimaryKey(Region record);
+
+    List<Region> queryRegionByPid(@Param("pid")int pid);
 }
