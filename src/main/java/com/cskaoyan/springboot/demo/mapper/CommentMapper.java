@@ -3,6 +3,8 @@ package com.cskaoyan.springboot.demo.mapper;
 import com.cskaoyan.springboot.demo.bean.Comment;
 import com.cskaoyan.springboot.demo.bean.CommentExample;
 import java.util.List;
+
+import com.cskaoyan.springboot.demo.wx.bean.CommentWx;
 import org.apache.ibatis.annotations.Param;
 
 public interface CommentMapper {
@@ -27,4 +29,15 @@ public interface CommentMapper {
     int updateByPrimaryKeySelective(Comment record);
 
     int updateByPrimaryKey(Comment record);
+
+
+    List<Comment> selectComment(@Param("userId") String userId,@Param("valueId") String valueId, @Param("sort") String sort, @Param("orderby") String order);
+
+    int deleteComment(@Param("comment") Comment comment);
+
+    int insertCommentContent(String commentId,String content);
+
+    List<CommentWx> getCommentsByGoodsId(@Param("goodsId") int goodsId);
+
+    int getCommentCountByGoodsId(@Param("goodsId") int goodsId);
 }

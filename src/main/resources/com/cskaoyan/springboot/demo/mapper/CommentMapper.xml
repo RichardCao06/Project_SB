@@ -303,4 +303,71 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
+
+
+  <select id="selectComment" resultMap="BaseResultMap">
+    select
+    id,
+    value_id,
+    type,
+    content,
+    user_id,
+    has_picture,
+    pic_urls,
+    star,
+    add_time,
+    update_time,
+    deleted
+    from cskaoyan_mall_comment
+    <where>
+      <if test="userId != null">
+        user_id = #{userId}
+      </if>
+      <if test="valueId != null">
+        and value_id = #{valueId}
+      </if>
+      and deleted != 1
+    </where>
+    order by #{sort} #{orderby}
+  </select>
+
+  <update id="deleteComment">
+    update cskaoyan_mall_comment
+    set deleted = 1
+    where id = #{comment.id}
+  </update>
+
+  <update id="insertCommentContent">
+    update cskaoyan_mall_comment
+    set content = #{content}
+    where id = #{commentId} and content is null or content = ''
+  </update>
+
+
+  <resultMap id="wxCommentMap" type="com.cskaoyan.springboot.demo.wx.bean.CommentWx">
+    <result property="addTime" column="add_time"/>
+    <result property="avater" column="avater"/>
+    <result property="content" column="content"/>
+    <result property="id" column="id"/>
+    <result property="nickname" column="nickname"/>
+    <result property="picList" column="pic_urls" typeHandler="com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler"/>
+  </resultMap>
+
+  <select id="getCommentsByGoodsId" resultMap="wxCommentMap">
+    select
+      c.add_time,c.content,c.id,c.pic_urls,
+      u.avatar,u.nickname
+    from cskaoyan_mall_comment c
+           left join cskaoyan_mall_user u
+                     on c.user_id = u.id
+    where c.deleted = 0 and u.deleted = 0 and value_id = #{goodsId}
+  </select>
+
+  <select id="getCommentCountByGoodsId" resultType="int">
+    select count(*) from cskaoyan_mall_comment
+    where deleted = 0 and value_id = #{goodsId}
+  </select>
 </mapper>

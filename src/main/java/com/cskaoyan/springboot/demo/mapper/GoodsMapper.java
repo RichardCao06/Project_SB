@@ -35,4 +35,20 @@ public interface GoodsMapper {
     int updateByPrimaryKey(Goods record);
 
     List<Goods> getListRecord(@Param("sort") String sort, @Param("order")String order,@Param("goodsId") String goodsId);
+
+/*````````````````````````````````````````````````````````````````````````````````````````````````````*/
+
+
+
+    List<Goods> queryAll();
+
+    List<Goods> fuzzyQuery(@Param("goodsSn") String goodsSn, @Param("name") String name);
+
+    int insertGoods(Goods goods);
+
+    Goods queryOneById(int id);
+
+    int update(@Param("goods") Goods goods);
+
+    int delete(@Param("goods") Goods goods);
 }

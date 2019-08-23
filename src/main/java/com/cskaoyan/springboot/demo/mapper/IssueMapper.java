@@ -30,4 +30,7 @@ public interface IssueMapper {
     int updateByPrimaryKey(Issue record);
 
     int queryIssueById();
+
+    /*``````````````````````*/
+    List<Issue> getAllIssue();
 }

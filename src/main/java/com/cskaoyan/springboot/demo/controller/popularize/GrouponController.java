@@ -1,3 +1,4 @@
+/*
 package com.cskaoyan.springboot.demo.controller.popularize;
 
 import com.cskaoyan.springboot.demo.bean.Goods;
@@ -42,7 +43,8 @@ public class GrouponController {
         String[] s = {} ;
         //分次查询
         if (goodsId == null) goodsId = "";
-        List<Goods> goodsList = goodsMapper.getListRecord(sort ,order , goodsId);
+        //List<Goods> goodsList = goodsMapper.getListRecord(sort ,order , goodsId);
+        List<Goods> goodsList = null;
         System.out.println("goodsList.size() = " + goodsList.size());
         for (Goods goods:goodsList ) {
             int id = goods.getId();
@@ -60,10 +62,12 @@ public class GrouponController {
         }
         //分页
         PageHelper.startPage(page, limit);
-       /* PageInfo<GoodsAndGrouponAndGrouponRules> ggrPageInfo = new PageInfo<>(ggrList);
+       */
+/* PageInfo<GoodsAndGrouponAndGrouponRules> ggrPageInfo = new PageInfo<>(ggrList);
         ResponVo<GoodsAndGrouponAndGrouponRules> ggrPageVO = new ResponVo(ggrPageInfo.getTotal(),ggrPageInfo.getList());
         Errmsg<ResponVo> errmsg = new Errmsg(ggrPageVO ,"成功" , 0);
-        return errmsg;*/
+        return errmsg;*//*
+
        Map<String,Object> map=new HashMap<>();
        map.put("data",ggrList);
        map.put("errmsg","成功");
@@ -72,3 +76,4 @@ public class GrouponController {
     }
 
 }
+*/
