@@ -229,4 +229,21 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+  <resultMap id="issueMap" type="com.cskaoyan.springboot.demo.bean.Issue">
+    <result property="id" column="id"/>
+    <result property="question" column="question"/>
+    <result property="answer" column="answer"/>
+    <result property="addTime" column="add_time"/>
+    <result property="updateTime" column="update_time"/>
+    <result property="deleted" column="deleted"/>
+  </resultMap>
+
+
+  <select id="getAllIssue" resultMap="issueMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_issue
+    where deleted = 0
+  </select>
 </mapper>

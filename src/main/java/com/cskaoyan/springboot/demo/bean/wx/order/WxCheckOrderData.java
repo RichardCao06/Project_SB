@@ -4,6 +4,7 @@ package com.cskaoyan.springboot.demo.bean.wx.order;
 import com.cskaoyan.springboot.demo.bean.Address;
 import com.cskaoyan.springboot.demo.bean.Goods;
 
+
 import java.util.List;
 
 public class WxCheckOrderData {

@@ -7,7 +7,8 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="category_id" jdbcType="INTEGER" property="categoryId" />
     <result column="brand_id" jdbcType="INTEGER" property="brandId" />
-    <result column="gallery" jdbcType="VARCHAR" property="gallery" />
+    <result column="gallery" jdbcType="VARCHAR" property="gallery"
+    typeHandler="com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler"/>
     <result column="keywords" jdbcType="VARCHAR" property="keywords" />
     <result column="brief" jdbcType="VARCHAR" property="brief" />
     <result column="is_on_sale" jdbcType="BIT" property="isOnSale" />
@@ -85,8 +86,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, goods_sn, name, category_id, brand_id, gallery, keywords, brief, is_on_sale, 
-    sort_order, pic_url, share_url, is_new, is_hot, unit, counter_price, retail_price, 
+    id, goods_sn, name, category_id, brand_id, gallery, keywords, brief, is_on_sale,
+    sort_order, pic_url, share_url, is_new, is_hot, unit, counter_price, retail_price,
     add_time, update_time, deleted
   </sql>
   <sql id="Blob_Column_List">
@@ -123,7 +124,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
-    select 
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
@@ -141,19 +142,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.Goods">
-    insert into cskaoyan_mall_goods (id, goods_sn, name, 
-      category_id, brand_id, gallery, 
-      keywords, brief, is_on_sale, 
-      sort_order, pic_url, share_url, 
-      is_new, is_hot, unit, counter_price, 
-      retail_price, add_time, update_time, 
+    insert into cskaoyan_mall_goods (id, goods_sn, name,
+      category_id, brand_id, gallery,
+      keywords, brief, is_on_sale,
+      sort_order, pic_url, share_url,
+      is_new, is_hot, unit, counter_price,
+      retail_price, add_time, update_time,
       deleted, detail)
-    values (#{id,jdbcType=INTEGER}, #{goodsSn,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{categoryId,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, #{gallery,jdbcType=VARCHAR}, 
-      #{keywords,jdbcType=VARCHAR}, #{brief,jdbcType=VARCHAR}, #{isOnSale,jdbcType=BIT}, 
-      #{sortOrder,jdbcType=SMALLINT}, #{picUrl,jdbcType=VARCHAR}, #{shareUrl,jdbcType=VARCHAR}, 
-      #{isNew,jdbcType=BIT}, #{isHot,jdbcType=BIT}, #{unit,jdbcType=VARCHAR}, #{counterPrice,jdbcType=DECIMAL}, 
-      #{retailPrice,jdbcType=DECIMAL}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{goodsSn,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+      #{categoryId,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, #{gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler,jdbcType=VARCHAR},
+      #{keywords,jdbcType=VARCHAR}, #{brief,jdbcType=VARCHAR}, #{isOnSale,jdbcType=BIT},
+      #{sortOrder,jdbcType=SMALLINT}, #{picUrl,jdbcType=VARCHAR}, #{shareUrl,jdbcType=VARCHAR},
+      #{isNew,jdbcType=BIT}, #{isHot,jdbcType=BIT}, #{unit,jdbcType=VARCHAR}, #{counterPrice,jdbcType=DECIMAL},
+      #{retailPrice,jdbcType=DECIMAL}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
       #{deleted,jdbcType=BIT}, #{detail,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cskaoyan.springboot.demo.bean.Goods">
@@ -240,7 +241,7 @@
         #{brandId,jdbcType=INTEGER},
       </if>
       <if test="gallery != null">
-        #{gallery,jdbcType=VARCHAR},
+        #{gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler,jdbcType=VARCHAR},
       </if>
       <if test="keywords != null">
         #{keywords,jdbcType=VARCHAR},
@@ -314,7 +315,7 @@
         brand_id = #{record.brandId,jdbcType=INTEGER},
       </if>
       <if test="record.gallery != null">
-        gallery = #{record.gallery,jdbcType=VARCHAR},
+        gallery = #{record.gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler,jdbcType=VARCHAR},
       </if>
       <if test="record.keywords != null">
         keywords = #{record.keywords,jdbcType=VARCHAR},
@@ -369,26 +370,26 @@
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update cskaoyan_mall_goods
     set id = #{record.id,jdbcType=INTEGER},
-      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR},
-      category_id = #{record.categoryId,jdbcType=INTEGER},
-      brand_id = #{record.brandId,jdbcType=INTEGER},
-      gallery = #{record.gallery,jdbcType=VARCHAR},
-      keywords = #{record.keywords,jdbcType=VARCHAR},
-      brief = #{record.brief,jdbcType=VARCHAR},
-      is_on_sale = #{record.isOnSale,jdbcType=BIT},
-      sort_order = #{record.sortOrder,jdbcType=SMALLINT},
-      pic_url = #{record.picUrl,jdbcType=VARCHAR},
-      share_url = #{record.shareUrl,jdbcType=VARCHAR},
-      is_new = #{record.isNew,jdbcType=BIT},
-      is_hot = #{record.isHot,jdbcType=BIT},
-      unit = #{record.unit,jdbcType=VARCHAR},
-      counter_price = #{record.counterPrice,jdbcType=DECIMAL},
-      retail_price = #{record.retailPrice,jdbcType=DECIMAL},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT},
-      detail = #{record.detail,jdbcType=LONGVARCHAR}
+    goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+    name = #{record.name,jdbcType=VARCHAR},
+    category_id = #{record.categoryId,jdbcType=INTEGER},
+    brand_id = #{record.brandId,jdbcType=INTEGER},
+    gallery = #{record.gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler,jdbcType=VARCHAR},
+    keywords = #{record.keywords,jdbcType=VARCHAR},
+    brief = #{record.brief,jdbcType=VARCHAR},
+    is_on_sale = #{record.isOnSale,jdbcType=BIT},
+    sort_order = #{record.sortOrder,jdbcType=SMALLINT},
+    pic_url = #{record.picUrl,jdbcType=VARCHAR},
+    share_url = #{record.shareUrl,jdbcType=VARCHAR},
+    is_new = #{record.isNew,jdbcType=BIT},
+    is_hot = #{record.isHot,jdbcType=BIT},
+    unit = #{record.unit,jdbcType=VARCHAR},
+    counter_price = #{record.counterPrice,jdbcType=DECIMAL},
+    retail_price = #{record.retailPrice,jdbcType=DECIMAL},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT},
+    detail = #{record.detail,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -396,25 +397,25 @@
   <update id="updateByExample" parameterType="map">
     update cskaoyan_mall_goods
     set id = #{record.id,jdbcType=INTEGER},
-      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR},
-      category_id = #{record.categoryId,jdbcType=INTEGER},
-      brand_id = #{record.brandId,jdbcType=INTEGER},
-      gallery = #{record.gallery,jdbcType=VARCHAR},
-      keywords = #{record.keywords,jdbcType=VARCHAR},
-      brief = #{record.brief,jdbcType=VARCHAR},
-      is_on_sale = #{record.isOnSale,jdbcType=BIT},
-      sort_order = #{record.sortOrder,jdbcType=SMALLINT},
-      pic_url = #{record.picUrl,jdbcType=VARCHAR},
-      share_url = #{record.shareUrl,jdbcType=VARCHAR},
-      is_new = #{record.isNew,jdbcType=BIT},
-      is_hot = #{record.isHot,jdbcType=BIT},
-      unit = #{record.unit,jdbcType=VARCHAR},
-      counter_price = #{record.counterPrice,jdbcType=DECIMAL},
-      retail_price = #{record.retailPrice,jdbcType=DECIMAL},
-      add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      deleted = #{record.deleted,jdbcType=BIT}
+    goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+    name = #{record.name,jdbcType=VARCHAR},
+    category_id = #{record.categoryId,jdbcType=INTEGER},
+    brand_id = #{record.brandId,jdbcType=INTEGER},
+    gallery = #{record.gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler,jdbcType=VARCHAR},
+    keywords = #{record.keywords,jdbcType=VARCHAR},
+    brief = #{record.brief,jdbcType=VARCHAR},
+    is_on_sale = #{record.isOnSale,jdbcType=BIT},
+    sort_order = #{record.sortOrder,jdbcType=SMALLINT},
+    pic_url = #{record.picUrl,jdbcType=VARCHAR},
+    share_url = #{record.shareUrl,jdbcType=VARCHAR},
+    is_new = #{record.isNew,jdbcType=BIT},
+    is_hot = #{record.isHot,jdbcType=BIT},
+    unit = #{record.unit,jdbcType=VARCHAR},
+    counter_price = #{record.counterPrice,jdbcType=DECIMAL},
+    retail_price = #{record.retailPrice,jdbcType=DECIMAL},
+    add_time = #{record.addTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    deleted = #{record.deleted,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -435,7 +436,7 @@
         brand_id = #{brandId,jdbcType=INTEGER},
       </if>
       <if test="gallery != null">
-        gallery = #{gallery,jdbcType=VARCHAR},
+        gallery = #{gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler,jdbcType=VARCHAR},
       </if>
       <if test="keywords != null">
         keywords = #{keywords,jdbcType=VARCHAR},
@@ -491,7 +492,7 @@
       name = #{name,jdbcType=VARCHAR},
       category_id = #{categoryId,jdbcType=INTEGER},
       brand_id = #{brandId,jdbcType=INTEGER},
-      gallery = #{gallery,jdbcType=VARCHAR},
+      gallery = #{gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler,jdbcType=VARCHAR},
       keywords = #{keywords,jdbcType=VARCHAR},
       brief = #{brief,jdbcType=VARCHAR},
       is_on_sale = #{isOnSale,jdbcType=BIT},
@@ -515,7 +516,7 @@
       name = #{name,jdbcType=VARCHAR},
       category_id = #{categoryId,jdbcType=INTEGER},
       brand_id = #{brandId,jdbcType=INTEGER},
-      gallery = #{gallery,jdbcType=VARCHAR},
+      gallery = #{gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler,jdbcType=VARCHAR},
       keywords = #{keywords,jdbcType=VARCHAR},
       brief = #{brief,jdbcType=VARCHAR},
       is_on_sale = #{isOnSale,jdbcType=BIT},
@@ -533,10 +534,56 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="getListRecord"  resultMap="BaseResultMap">
-    select  <include refid="Base_Column_List"/>
+<!--````````````````````````````````````````````````````````````````````-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
     from cskaoyan_mall_goods
-    where  id like "%" #{goodsId} "%"
-    order by #{sort}  #{order}
   </select>
+
+  <select id="fuzzyQuery" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from cskaoyan_mall_goods
+    where goods_sn like #{goodsSn} and `name` like #{name}
+  </select>
+
+  <insert id="insertGoods" keyProperty="id" useGeneratedKeys="true">
+        insert into cskaoyan_mall_goods
+        (goods_sn,`name`,category_id,brand_id,
+        gallery,keywords,brief,is_on_sale,sort_order,pic_url,share_url,
+        is_new,is_hot,unit,counter_price,retail_price,detail,add_time,
+        update_time,deleted)
+        values
+        (#{goodsSn},#{name},#{categoryId},#{brandId},#{gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler},
+        #{keywords},#{brief},#{isOnSale},#{sortOrder},#{picUrl},#{shareUrl},#{isNew},#{isHot},
+        #{unit},#{counterPrice},#{retailPrice},#{detail},#{addTime},#{updateTime},#{deleted})
+   </insert>
+
+  <select id="queryOneById" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from cskaoyan_mall_goods
+    where id = #{id}
+  </select>
+
+  <update id="update">
+    update cskaoyan_mall_goods set
+    goods_sn=#{goods.goodsSn},`name`=#{goods.name},category_id=#{goods.categoryId},
+    brand_id=#{goods.brandId},gallery=#{goods.gallery,typeHandler=com.cskaoyan.springboot.demo.Vo.StringArray2StringHandler},
+    keywords=#{goods.keywords},
+    brief=#{goods.brief},is_on_sale=#{goods.isOnSale},sort_order=#{goods.sortOrder},
+    pic_url=#{goods.picUrl},share_url=#{goods.shareUrl},
+    is_new=#{goods.isNew},is_hot=#{goods.isHot},unit=#{goods.unit},counter_price=#{goods.counterPrice},
+    retail_price=#{goods.retailPrice},detail=#{goods.detail},add_time=#{goods.addTime},
+    update_time=#{goods.updateTime},deleted=#{goods.deleted}
+    where id=#{goods.id}
+  </update>
+
+  <delete id="delete">
+    delete from cskaoyan_mall_goods
+    where id = #{goods.id}
+  </delete>
+
+
 </mapper>
