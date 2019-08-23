@@ -126,7 +126,7 @@ public class GoodsWxController {
     @RequestMapping("list")
     @ResponseBody
     public BaseRespVO getPageBrandsGoods(String keyword,String brandId,int page,int size,Boolean isNew,String order,String sort,Integer categoryId){
-        DataResult<Goods> listPage =null;
+        /*DataResult<Goods> listPage =null;
         List<Goods> goodsList = null;
         if(brandId==null){
             goodsList = goodsService.getPageBrandsGoodsByIds(isNew,order,sort,categoryId,keyword);
@@ -154,9 +154,40 @@ public class GoodsWxController {
         data.put("filterCategoryList",filterCategoryList);
         data.put("goodsList",listPage.getItems());
 
+        return BaseRespVO.ok(data);*/
+
+
+        DataResult<List> listPageVO =null;
+        List<Goods> goodsList = null;
+        if(brandId==null){
+            goodsList = goodsService.getPageBrandsGoodsByIds(isNew,order,sort,categoryId,keyword);
+            listPageVO = pageInfo(page, size, goodsList);
+        }
+        if (categoryId==null){
+            goodsList = goodsService.getPageBrandsGoodsById(brandId);
+            listPageVO = pageInfo(page, size, goodsList);
+        }
+
+        //filterCategoryList分类
+        List<Category> filterCategoryList = categoryService.getFilterCategoryList(keyword);
+        Map<Object, Object> data = new HashMap<Object, Object>();
+        data.put("count",listPageVO.getTotal());
+        data.put("filterCategoryList",filterCategoryList);
+        data.put("goodsList",listPageVO.getItems());
         return BaseRespVO.ok(data);
 
     }
+
+
+    private DataResult<List> pageInfo(int page, int size, List list) {
+        PageHelper.startPage(page, size);
+        PageInfo<List> pageInfo = new PageInfo<>(list);
+        DataResult<List> dataResult = new DataResult<>();
+        dataResult.setTotal(pageInfo.getTotal());
+        dataResult.setItems(pageInfo.getList());
+        return dataResult;
+    }
+
 
 
 
