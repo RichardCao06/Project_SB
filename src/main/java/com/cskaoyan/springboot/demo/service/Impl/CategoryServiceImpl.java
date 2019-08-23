@@ -30,4 +30,12 @@ public class CategoryServiceImpl implements CategoryService {
     public Category getCategoryById(Integer id) {
         return categoryMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public List<Category> getFilterCategoryList(String keyword) {
+        if (keyword == null){
+            keyword = "";
+        }
+        return categoryMapper.getFilterCategoryList(keyword);
+    }
 }

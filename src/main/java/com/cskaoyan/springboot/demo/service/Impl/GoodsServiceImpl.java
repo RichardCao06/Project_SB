@@ -74,4 +74,20 @@ public class GoodsServiceImpl implements GoodsService {
     public int delete(Goods goods) {
         return goodsMapper.delete(goods);
     }
+
+    @Override
+    public int getGoodsNum() {
+        return goodsMapper.getGoodsNum();
+    }
+
+    @Override
+    public List<Goods> getPageBrandsGoodsByIds(Boolean isNew, String order, String sort, Integer categoryId, String keyword) {
+
+        return goodsMapper.getPageBrandsGoodsByIds(isNew,order, sort, categoryId, keyword);
+    }
+
+    @Override
+    public List<Goods> getPageBrandsGoodsById(String brandId) {
+        return goodsMapper.getPageBrandsGoodsById(brandId);
+    }
 }

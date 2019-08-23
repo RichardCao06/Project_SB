@@ -4,6 +4,8 @@ import com.cskaoyan.springboot.demo.Vo.DataResult;
 import com.cskaoyan.springboot.demo.Vo.ResponseVo;
 import com.cskaoyan.springboot.demo.bean.Goods;
 
+import java.util.List;
+
 /**
  * Created by MatthewLi on 2019/8/20
  */
@@ -21,4 +23,9 @@ public interface GoodsService {
 
     int delete(Goods goods);
 
+    int getGoodsNum();
+
+    List<Goods> getPageBrandsGoodsByIds(Boolean isNew, String order, String sort, Integer categoryId, String keyword);
+
+    List<Goods> getPageBrandsGoodsById(String brandId);
 }
