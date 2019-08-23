@@ -74,7 +74,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, user_id, province_id, city_id, area_id, address, mobile, is_default, add_time, 
+    id, `name`, user_id, province_id, city_id, area_id, address, mobile, is_default, add_time,
     update_time, deleted
   </sql>
   <select id="selectByExample" parameterType="com.cskaoyan.springboot.demo.bean.AddressExample" resultMap="BaseResultMap">
@@ -108,7 +108,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.springboot.demo.bean.Address">
-    insert into cskaoyan_mall_address (id, name, user_id, 
+    insert into cskaoyan_mall_address (id, `name`, user_id,
       province_id, city_id, area_id, 
       address, mobile, is_default, 
       add_time, update_time, deleted
@@ -320,4 +320,6 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
 </mapper>

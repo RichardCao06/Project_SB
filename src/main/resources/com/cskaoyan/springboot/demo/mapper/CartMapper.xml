@@ -17,6 +17,23 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+
+  <resultMap id="BaseResultMap2" type="com.cskaoyan.springboot.demo.wx.bean.CartCustom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="goods_sn" jdbcType="VARCHAR" property="goodsSn" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="number" jdbcType="SMALLINT" property="number" />
+    <result column="specifications" jdbcType="VARCHAR" property="specifications" typeHandler="com.cskaoyan.springboot.demo.util.StringListToStringHandler"/>
+    <result column="checked" jdbcType="BIT" property="checked" />
+    <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+  </resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -350,4 +367,64 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="cartList" resultMap="BaseResultMap2">
+    select id, user_id, goods_id, goods_sn, goods_name, product_id, price, `number`, specifications,
+    checked, pic_url, add_time, update_time, deleted from cskaoyan_mall_cart
+  </select>
+
+  <select id="selectByPid" resultMap="BaseResultMap">
+    select id, user_id, goods_id, goods_sn, goods_name, product_id, price, `number`, specifications,
+    checked, pic_url, add_time, update_time, deleted from cskaoyan_mall_cart
+    where product_id = #{pid}
+  </select>
+
+  <update id="updateByPid">
+    update cskaoyan_mall_cart
+    set checked = #{checked}
+    where product_id = #{pid}
+  </update>
+
+  <update id="updateNumById">
+    update cskaoyan_mall_cart
+    set `number` = #{number}
+    where id = #{id}
+  </update>
+
+  <delete id="deleteByPid">
+    delete from cskaoyan_mall_cart
+    where product_id = #{pid}
+  </delete>
+
+  <select id="cartListCheckedTrue" resultMap="BaseResultMap2">
+    select id, user_id, goods_id, goods_sn, goods_name, product_id, price, `number`, specifications,
+    checked, pic_url, add_time, update_time, deleted from cskaoyan_mall_cart
+    where checked = true
+  </select>
+
+  <insert id="insertIntoCart" parameterType="com.cskaoyan.springboot.demo.wx.bean.CartCustom">
+    insert into cskaoyan_mall_cart (id, user_id, goods_id,
+      goods_sn, goods_name, product_id,
+      price, `number`, specifications,
+      checked, pic_url, add_time,
+      update_time, deleted)
+      values (
+      #{cart.id},
+      #{cart.userId},
+      #{cart.goodsId},
+      #{cart.goodsSn},
+      #{cart.goodsName},
+      #{cart.productId},
+      #{cart.price},
+      #{cart.number},
+      #{cart.specifications,typeHandler=com.cskaoyan.springboot.demo.util.StringListToStringHandler},
+      #{cart.checked},
+      #{cart.picUrl},
+      #{cart.addTime},
+      #{cart.updateTime},
+      #{cart.deleted}
+      )
+  </insert>
+
+
 </mapper>

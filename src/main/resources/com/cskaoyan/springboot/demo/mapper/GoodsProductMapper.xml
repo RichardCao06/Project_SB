@@ -12,6 +12,19 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+
+  <resultMap id="BaseResultMap2" type="com.cskaoyan.springboot.demo.wx.bean.WxGoodsProduct">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="specifications" jdbcType="VARCHAR" property="specifications" typeHandler="com.cskaoyan.springboot.demo.util.StringListToStringHandler" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+  </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -272,4 +285,14 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="queryPriceByGid" resultType="java.lang.Double">
+    select price from cskaoyan_mall_goods_product
+    where goods_id = #{gid}
+  </select>
+
+  <select id="queryGoodsProduct" resultMap="BaseResultMap2">
+    select id, goods_id, specifications, price, `number`, url, add_time, update_time, deleted
+    from cskaoyan_mall_goods_product where goods_id = #{gid}
+  </select>
 </mapper>

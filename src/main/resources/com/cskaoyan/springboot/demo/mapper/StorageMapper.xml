@@ -270,4 +270,26 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getAllStorage" resultMap="BaseResultMap">
+    select id, `key`, `name`, `type`, `size`, url, add_time, update_time, deleted
+    from cskaoyan_mall_storage
+  </select>
+
+  <update id="updateById">
+    update cskaoyan_mall_storage
+    set `name` = #{name} where id = #{id}
+  </update>
+
+  <select id="searchByNameAndKey" resultMap="BaseResultMap">
+    select
+    id, `key`, `name`, `type`, `size`, url, add_time, update_time, deleted
+    from cskaoyan_mall_storage
+    where `key` like #{key} or `name` like #{name}
+  </select>
+
+  <insert id="insertPic" >
+    insert into cskaoyan_mall_storage values (#{pic.id},#{pic.key},#{pic.name},#{pic.type},#{pic.size},#{pic.url},#{pic.addTime},
+    #{pic.updateTime},0)
+  </insert>
 </mapper>

@@ -208,4 +208,9 @@
       code = #{code,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="queryRegionByPid" resultMap="BaseResultMap">
+    select  id, pid, `name`, `type`, code from cskaoyan_mall_region
+    where pid = #{pid}
+  </select>
 </mapper>

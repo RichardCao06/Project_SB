@@ -3,6 +3,8 @@ package com.cskaoyan.springboot.demo.wx.controller;
 import com.cskaoyan.springboot.demo.Vo.DataResult;
 import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.service.*;
+import com.cskaoyan.springboot.demo.util.ControllerLog;
+import com.cskaoyan.springboot.demo.util.WxControllerLog;
 import com.cskaoyan.springboot.demo.wx.bean.CommentWx;
 import com.cskaoyan.springboot.demo.wx.bean.GoodsDetailWx;
 import com.cskaoyan.springboot.demo.wx.bean.SpecificationWx;
@@ -50,6 +52,7 @@ public class GoodsWxController {
 
     //商品详情
     @RequestMapping("/detail")
+    @WxControllerLog
     public BaseRespVO goodsDetail(Integer id){
         GoodsDetailWx data = getGoodsDetailById(id);
         BaseRespVO baseRespVO =BaseRespVO.ok(data);

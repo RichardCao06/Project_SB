@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 import java.util.Map;
 @Controller
+@RequestMapping("admin")
 public class TopicController {
     @Autowired
     TopicService topicService;

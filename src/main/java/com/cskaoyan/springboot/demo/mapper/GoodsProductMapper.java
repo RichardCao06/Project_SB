@@ -3,6 +3,8 @@ package com.cskaoyan.springboot.demo.mapper;
 import com.cskaoyan.springboot.demo.bean.GoodsProduct;
 import com.cskaoyan.springboot.demo.bean.GoodsProductExample;
 import java.util.List;
+
+import com.cskaoyan.springboot.demo.wx.bean.WxGoodsProduct;
 import org.apache.ibatis.annotations.Param;
 
 public interface GoodsProductMapper {
@@ -27,4 +29,8 @@ public interface GoodsProductMapper {
     int updateByPrimaryKeySelective(GoodsProduct record);
 
     int updateByPrimaryKey(GoodsProduct record);
+
+    Double queryPriceByGid(@Param("gid")int id);
+
+    WxGoodsProduct queryGoodsProduct(@Param("gid")int gid);
 }

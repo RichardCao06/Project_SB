@@ -17,7 +17,7 @@ public class StorageController {
     @Autowired
     MallService mallService;
 
-    @RequestMapping("storage/create")
+   /* @RequestMapping("storage/create")
     public MessageWithData storeFile(MultipartFile file) throws IOException {
         //根据上传的文件生成文件信息
         Storage storageFile = mallService.createUploadFileData(file);
@@ -34,5 +34,5 @@ public class StorageController {
         messageWithData.setErrmsg("成功");
         messageWithData.setData(storageFile);
         return messageWithData;
-    }
+    }*/
 }

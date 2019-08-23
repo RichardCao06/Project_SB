@@ -1,5 +1,6 @@
 package com.cskaoyan.springboot.demo.mapper;
 
+import com.cskaoyan.springboot.demo.bean.Region;
 import com.cskaoyan.springboot.demo.bean.Role;
 import com.cskaoyan.springboot.demo.bean.RoleExample;
 
@@ -39,4 +40,6 @@ public interface RoleMapper {
     List<Role> searchByName(@Param("name")String name);
 
     String[] queryRoleByIds(String[] ids);
+
+
 }
