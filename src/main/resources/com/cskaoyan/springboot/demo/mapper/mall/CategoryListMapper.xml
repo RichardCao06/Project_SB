@@ -99,5 +99,8 @@
     <delete id="deleteCategory">
         delete from cskaoyan_mall_category where id=#{id}
     </delete>
+    <insert id="insertCategory">
+        insert into cskaoyan_mall_category (description,icon_url,keywords,levels,name,pic_url,pid) values (#{category.desc},#{category.iconUrl},#{category.keywords},#{category.level},#{category.name},#{category.picUrl},#{category.pid})
+    </insert>
 
 </mapper>

@@ -77,4 +77,8 @@
         </where>
 
     </select>
+
+    <insert id="insertBrand">
+        insert into cskaoyan_mall_brand (description,floor_price,name,pic_url) values (#{brand.desc},#{brand.floorPrice},#{brand.name},#{brand.picUrl})
+    </insert>
 </mapper>
