@@ -14,4 +14,8 @@ public interface KeywordService {
     Keyword insert(Keyword keyword);
 
     void delete(Keyword keyword);
+
+    public List<Keyword> find_HotKeyword();
+
+    public Keyword get_DefaultKeyword();
 }

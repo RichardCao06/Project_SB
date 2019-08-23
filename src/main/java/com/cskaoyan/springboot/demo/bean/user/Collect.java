@@ -17,6 +17,20 @@ public class Collect {
 
     private Boolean deleted;
 
+    public Collect() {
+    }
+
+    public Collect(Integer id, Integer userId, Integer valueId,
+                   Byte type, Date addTime, Date updateTime, Boolean deleted) {
+        this.id = id;
+        this.userId = userId;
+        this.valueId = valueId;
+        this.type = type;
+        this.addTime = addTime;
+        this.updateTime = updateTime;
+        this.deleted = deleted;
+    }
+
     public Integer getId() {
         return id;
     }

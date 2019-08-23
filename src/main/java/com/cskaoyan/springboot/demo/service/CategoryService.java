@@ -13,4 +13,6 @@ public interface CategoryService {
     List<Category> queryAllCategories(Integer currentCategoryId);
 
     Category getCategoryById(Integer id);
+
+    List<Category> getFilterCategoryList(String keyword);
 }

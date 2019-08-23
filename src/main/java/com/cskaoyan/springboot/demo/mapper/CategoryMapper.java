@@ -33,4 +33,6 @@ public interface CategoryMapper {
     List<Category> queryAllCategoriesL2(@Param("id") Integer id);
 
     Category selectByPrimaryKey(Integer id);
+
+    List<Category> getFilterCategoryList(@Param("keyword") String keyword);
 }
