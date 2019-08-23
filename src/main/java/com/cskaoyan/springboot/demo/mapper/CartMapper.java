@@ -5,6 +5,7 @@ import com.cskaoyan.springboot.demo.bean.CartExample;
 import java.util.List;
 
 import com.cskaoyan.springboot.demo.wx.bean.CartCustom;
+import com.cskaoyan.springboot.demo.wx.bean.WxGoodsProduct;
 import org.apache.ibatis.annotations.Param;
 
 public interface CartMapper {
@@ -43,4 +44,6 @@ public interface CartMapper {
     int deleteByPid(@Param("pid")int pid);
 
     List<CartCustom> cartListCheckedTrue();
+
+    int insertIntoCart(@Param("cart")CartCustom cartCustom);
 }
