@@ -1,3 +1,4 @@
+/*
 package com.cskaoyan.springboot.demo.service.popularize;
 
 import com.cskaoyan.springboot.demo.bean.Groupon;
@@ -25,4 +26,4 @@ public interface GrouponService {
     int countGrouponId();
 
     Groupon getGrouponId(int grouponId);
-}
+}*/

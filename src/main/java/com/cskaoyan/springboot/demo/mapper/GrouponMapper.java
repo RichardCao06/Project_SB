@@ -1,3 +1,4 @@
+/*
 package com.cskaoyan.springboot.demo.mapper;
 
 import com.cskaoyan.springboot.demo.bean.Groupon;
@@ -38,4 +39,4 @@ public interface GrouponMapper {
     int count();
 
     int countGrouponId();
-}
+}*/

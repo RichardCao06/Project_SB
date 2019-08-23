@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 小程序配置admin/config/wx
  */
 @RestController
-@RequestMapping("/config")
+@RequestMapping("admin/config")
 public class ConfigController {
         @Autowired
         ConfigService configService;

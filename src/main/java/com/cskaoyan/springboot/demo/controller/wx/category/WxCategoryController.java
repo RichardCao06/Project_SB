@@ -68,7 +68,14 @@ public class WxCategoryController {
         CategoryLevelOne currentCategory = mallService.findCategoryById(id);
         wxRelateCategoryData.setCurrentCategory(currentCategory);
         //2. 根据当前category的pid获取parentCategory
-        CategoryLevelOne fatherCategory = mallService.findCategoryById(currentCategory.getPid());
+        int pid =currentCategory.getPid();
+        CategoryLevelOne fatherCategory = new CategoryLevelOne();
+        //判断当前目录时一级目录还是二级目录
+        if(pid != 0) {
+            fatherCategory = mallService.findCategoryById(currentCategory.getPid());
+        }else {
+            fatherCategory = mallService.findCategoryById(currentCategory.getId());
+        }
         wxRelateCategoryData.setParentCategory(fatherCategory);
         //3. 获取父类目的所有子目录即为兄弟类目
         List<CategoryLevelTwo> brotherCategory = fatherCategory.getChildren();

@@ -1,4 +1,4 @@
-package com.cskaoyan.springboot.demo.controller.popularize;
+/*package com.cskaoyan.springboot.demo.controller.popularize;
 
 import com.cskaoyan.springboot.demo.bean.Goods;
 import com.cskaoyan.springboot.demo.bean.Groupon;
@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@RequestMapping("admin")
 public class GrouponController {
     @Autowired
     GrouponService grouponService;
@@ -60,10 +61,10 @@ public class GrouponController {
         }
         //分页
         PageHelper.startPage(page, limit);
-       /* PageInfo<GoodsAndGrouponAndGrouponRules> ggrPageInfo = new PageInfo<>(ggrList);
+       *//* PageInfo<GoodsAndGrouponAndGrouponRules> ggrPageInfo = new PageInfo<>(ggrList);
         ResponVo<GoodsAndGrouponAndGrouponRules> ggrPageVO = new ResponVo(ggrPageInfo.getTotal(),ggrPageInfo.getList());
         Errmsg<ResponVo> errmsg = new Errmsg(ggrPageVO ,"成功" , 0);
-        return errmsg;*/
+        return errmsg;*//*
        Map<String,Object> map=new HashMap<>();
        map.put("data",ggrList);
        map.put("errmsg","成功");
@@ -71,4 +72,4 @@ public class GrouponController {
        return map;
     }
 
-}
+}*/
