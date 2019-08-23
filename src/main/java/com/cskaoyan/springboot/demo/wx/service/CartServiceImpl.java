@@ -5,6 +5,7 @@ import com.cskaoyan.springboot.demo.bean.*;
 import com.cskaoyan.springboot.demo.bean.systembean.ResponseVo;
 import com.cskaoyan.springboot.demo.mapper.*;
 import com.cskaoyan.springboot.demo.realm.UserTokenManager;
+import com.cskaoyan.springboot.demo.service.GoodsService;
 import com.cskaoyan.springboot.demo.wx.bean.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,8 @@ public class CartServiceImpl implements CartService {
     @Autowired
     RegionMapper regionMapper;
 
-
+    @Autowired
+    GoodsService goodsService;
 
     @Override
     public ResponseVo queryGoodsCount() {
@@ -125,7 +127,7 @@ public class CartServiceImpl implements CartService {
         /*String tokenKey = request.getHeader("X-Litemall-Token");
         Integer userId = UserTokenManager.getUserId(tokenKey);*/
 
-        Cart cart = new Cart();
+        CartCustom cart = new CartCustom();
         //获取传递的json数据
         Integer goodsId = (Integer) map.get("goodsId");
         int number = (int) map.get("number");
@@ -135,12 +137,19 @@ public class CartServiceImpl implements CartService {
         cart.setProductId(productId);
         cart.setChecked(true);
         cart.setAddTime(new Date());
+        cart.setUpdateTime(new Date());
+        Goods goods = goodsService.queryOneById(goodsId);
+        WxGoodsProduct goodsProduct = goodsProductMapper.queryGoodsProduct(goodsId);
 
+
+        cart.setSpecifications(goodsProduct.getSpecifications());
+        cart.setPicUrl(goods.getPicUrl());
+        cart.setGoodsName(goods.getName());
         Double price = goodsProductMapper.queryPriceByGid(goodsId);
         BigDecimal bigDecimal = new BigDecimal(price);
         cart.setPrice(bigDecimal);
         //将goods加入购物车
-        cartMapper.insert(cart);
+        cartMapper.insertIntoCart(cart);
         //并查询该用户购物车内的goods个数
         return queryGoodsCount();
     }
@@ -234,7 +243,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public ResponseVo fastAddProduct(Map<String, Object> map) {
 
-        Cart cart = new Cart();
+        CartCustom cart = new CartCustom();
         //获取传递的json数据
         Integer goodsId = (Integer) map.get("goodsId");
         int number = (int) map.get("number");
@@ -244,18 +253,23 @@ public class CartServiceImpl implements CartService {
         cart.setProductId(productId);
         cart.setChecked(true);
         cart.setAddTime(new Date());
+        cart.setUpdateTime(new Date());
+        Goods goods = goodsService.queryOneById(goodsId);
+        WxGoodsProduct goodsProduct = goodsProductMapper.queryGoodsProduct(goodsId);
 
+        cart.setSpecifications(goodsProduct.getSpecifications());
+        cart.setPicUrl(goods.getPicUrl());
+        cart.setGoodsName(goods.getName());
         Double price = goodsProductMapper.queryPriceByGid(goodsId);
         BigDecimal bigDecimal = new BigDecimal(price);
         cart.setPrice(bigDecimal);
         //将goods加入购物车
-        cartMapper.insert(cart);
+        cartMapper.insertIntoCart(cart);
+
         ResponseVo responseVo = new ResponseVo();
         responseVo.setErrno(0);
         responseVo.setErrmsg("成功");
         responseVo.setData(0);
         return responseVo;
     }
-
-
 }

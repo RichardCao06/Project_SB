@@ -402,5 +402,29 @@
     where checked = true
   </select>
 
+  <insert id="insertIntoCart" parameterType="com.cskaoyan.springboot.demo.wx.bean.CartCustom">
+    insert into cskaoyan_mall_cart (id, user_id, goods_id,
+      goods_sn, goods_name, product_id,
+      price, `number`, specifications,
+      checked, pic_url, add_time,
+      update_time, deleted)
+      values (
+      #{cart.id},
+      #{cart.userId},
+      #{cart.goodsId},
+      #{cart.goodsSn},
+      #{cart.goodsName},
+      #{cart.productId},
+      #{cart.price},
+      #{cart.number},
+      #{cart.specifications,typeHandler=com.cskaoyan.springboot.demo.util.StringListToStringHandler},
+      #{cart.checked},
+      #{cart.picUrl},
+      #{cart.addTime},
+      #{cart.updateTime},
+      #{cart.deleted}
+      )
+  </insert>
+
 
 </mapper>

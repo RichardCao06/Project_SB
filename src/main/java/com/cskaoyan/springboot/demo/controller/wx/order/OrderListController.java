@@ -1,4 +1,3 @@
-/*
 package com.cskaoyan.springboot.demo.controller.wx.order;
 
 import com.cskaoyan.springboot.demo.bean.Cart;
@@ -40,8 +39,7 @@ public class OrderListController {
         return  messageWithData;
     }
 
-   */
-/* @RequestMapping("cart/checkout")
+ /*@RequestMapping("cart/checkout")
     public MessageWithData checkoutOrder(int cartId, int addressId, int couponId, int grouponRulesId){
         MessageWithData messageWithData = new MessageWithData();
         WxCheckOrderData wxCheckOrderData = mallService.createWxCheckOrder(cartId,addressId,couponId,grouponRulesId);
@@ -50,7 +48,7 @@ public class OrderListController {
         messageWithData.setErrmsg("成功");
         messageWithData.setData(wxCheckOrderData);
         return messageWithData;
-    }*//*
+    }
 
 
     @RequestMapping("cart/fastadd")
@@ -76,6 +74,5 @@ public class OrderListController {
         mallService.insertWxOrder(submitData);
         return messageWithData;
     }
-
-}
 */
+}
