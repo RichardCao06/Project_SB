@@ -51,4 +51,14 @@ public interface GoodsMapper {
     int update(@Param("goods") Goods goods);
 
     int delete(@Param("goods") Goods goods);
+
+    int getGoodsNum();
+
+    List<Goods> getPageBrandsGoodsByIds(@Param("isNew") Boolean isNew,
+                                        @Param("order") String order,
+                                        @Param("sort") String sort,
+                                        @Param("categoryId") int categoryId,
+                                        @Param("keyword")String keyword);
+
+    List<Goods> getPageBrandsGoodsById(String brandId);
 }

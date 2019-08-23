@@ -4,10 +4,10 @@ server:
   port: 80
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cskaoyan_mall_db?serverTimezone=UTC&
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cskaoyanmall
     username: root
-    password: ss7832459
+    password: 123456
 
 pagehelper:
 
