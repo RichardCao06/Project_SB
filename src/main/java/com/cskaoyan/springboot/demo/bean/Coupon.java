@@ -203,4 +203,11 @@ public class Coupon {
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
+
+    @Override
+    public String toString() {
+        return "Coupon{" +
+                "status=" + status +
+                '}';
+    }
 }

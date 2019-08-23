@@ -1,6 +1,7 @@
 package com.cskaoyan.springboot.demo.service.popularize;
 
 import com.cskaoyan.springboot.demo.bean.Coupon;
+import com.cskaoyan.springboot.demo.bean.popularize.DataVo;
 import com.cskaoyan.springboot.demo.bean.popularize.ResponVo;
 
 
@@ -13,5 +14,9 @@ public interface CouponService {
     Coupon getCouponById(int id);
 
     ResponVo list(String sort, String order, String name, String type, String status, Integer page, Integer limit);
+
+    DataVo<Coupon> getCouponByStatus(int status, int page, int size);
+
+    Coupon queryStatusByCode(String code);
 }
 

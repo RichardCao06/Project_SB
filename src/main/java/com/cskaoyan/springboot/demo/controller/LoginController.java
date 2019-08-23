@@ -95,4 +95,37 @@ public class LoginController {
         return baseRespModel;
 
     }
+
+    @RequestMapping("auth/regCaptcha")
+    @ResponseBody
+    public BaseRespModel phone(){
+
+        BaseRespModel baseRespModel = new BaseRespModel();
+        baseRespModel.setErrno(701);
+        baseRespModel.setErrmsg("小程序后台验证码服务不支持");
+
+
+        return baseRespModel;
+    }
+    @RequestMapping("auth/register")
+    @ResponseBody
+    public BaseRespModel register(){
+
+        BaseRespModel baseRespModel = new BaseRespModel();
+        baseRespModel.setErrno(703);
+        baseRespModel.setErrmsg("验证码错误");
+
+        return baseRespModel;
+    }
+
+    @RequestMapping("auth/login_by_weixin")
+    @ResponseBody
+    public BaseRespModel loginByWexin(){
+
+        BaseRespModel baseRespModel = new BaseRespModel();
+        baseRespModel.setErrno(-1);
+        baseRespModel.setErrmsg("错误");
+
+        return baseRespModel;
+    }
 }

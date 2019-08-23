@@ -2,6 +2,7 @@ package com.cskaoyan.springboot.demo.service.popularize.Impl;
 
 import com.cskaoyan.springboot.demo.bean.Coupon;
 import com.cskaoyan.springboot.demo.bean.CouponExample;
+import com.cskaoyan.springboot.demo.bean.popularize.DataVo;
 import com.cskaoyan.springboot.demo.bean.popularize.ResponVo;
 import com.cskaoyan.springboot.demo.mapper.CouponMapper;
 import com.cskaoyan.springboot.demo.service.popularize.CouponService;
@@ -58,6 +59,18 @@ import java.util.List;
 
     }
 
+    @Override
+    public DataVo<Coupon> getCouponByStatus(int status, int page, int size) {
+        List<Coupon> coupons=couponMapper.getCouponByStatus(status);
+        int total=coupons.size();
+        return  new DataVo<>(total,coupons);
+    }
+
+    @Override
+    public Coupon queryStatusByCode(String code) {
+        return couponMapper.queryStatusByCode(code);
+
+    }
 
 }
 

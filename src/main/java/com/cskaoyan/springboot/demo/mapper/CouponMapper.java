@@ -3,6 +3,8 @@ package com.cskaoyan.springboot.demo.mapper;
 import com.cskaoyan.springboot.demo.bean.Coupon;
 import com.cskaoyan.springboot.demo.bean.CouponExample;
 import java.util.List;
+
+import com.cskaoyan.springboot.demo.bean.popularize.ResponVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -32,5 +34,7 @@ public interface CouponMapper {
                          @Param("type") String type, @Param("status") String status);
 
     int create(Coupon coupon);
+    List<Coupon> getCouponByStatus(int status);
 
+    Coupon queryStatusByCode(String code);
 }

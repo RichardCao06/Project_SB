@@ -23,6 +23,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -455,4 +456,19 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+<!--getCouponByStatus-->
+  <select id="getCouponByStatus" resultType="java.lang.Integer">
+    select
+    `id`, `name`, `desc`, tag, total, discount,`min`,`limit`, `type`, `status`, `goods_type`,`goods_value`,
+    `code`,`time_type`,`days`,`start_time`, `end_time`, `add_time`, `update_time`, `deleted`
+    from cskaoyan_mall_coupon
+    where  status=#{status}
+
+  </select>
+
+
+<select id="queryStatusByCode" resultMap="BaseResultMap" >
+  select  cskaoyan_mall_coupon.`status`from cskaoyan_mall_coupon   where code =  #{code}
+</select>
+
 </mapper>
