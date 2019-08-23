@@ -34,4 +34,11 @@ public class SearchHistoryServiceImpl implements SearchHistoryService {
         long total = searchHistoryMapper.countByExample(searchHistoryExample);
         return new PageBean<SearchHistory>(searchHistories,total);
     }
+
+    public List<SearchHistory> findALL(){
+        SearchHistoryExample searchHistoryExample = new SearchHistoryExample();
+        searchHistoryExample.createCriteria();
+        List<SearchHistory> searchHistoryList = searchHistoryMapper.selectByExample(searchHistoryExample);
+        return searchHistoryList;
+    }
 }
